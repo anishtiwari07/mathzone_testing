@@ -9,11 +9,23 @@ export default function SolveButton({ onClick }) {
   const [openAnimation, setOpenAnimation] = useState(false);
   const timer1 = useRef(null);
   const timer2 = useRef(null);
-  const { hasAnswerSubmitted, currentIdentity, isAnswerCorrect } =
+  const { hasAnswerSubmitted, currentIdentity, isAnswerCorrect,setHasAnswerSubmitted,setIsAnswerCorrect } =
     useContext(ValidationContext);
-  useEffect(()=>{
-    window.handleSubmit=onClick
-  },[])
+    const handleSubmit=()=>{
+      onClick()
+      let temp=false
+  setHasAnswerSubmitted(prev=>{
+
+      setIsAnswerCorrect(isAnswer=>{
+        temp=prev?(isAnswer?1:0):-1
+        return isAnswer
+      })
+      return prev
+    })
+    console.log(temp,'temp')
+      return temp
+    }
+    window.handleSubmit=handleSubmit
   useEffect(() => {
     if (excludeParticipant.includes(currentIdentity)) handleResizeCheckBtn();
     if (hasAnswerSubmitted) {

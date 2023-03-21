@@ -39,7 +39,9 @@ function changeChoices(data){
 export const symbolCollection=()=>{
     return {
         '&lt':'<',
-        '&gt':'>'
+        '&gt':'>',
+        '&gt;':'>',
+        '&lt;':'<',
         
     }
 }

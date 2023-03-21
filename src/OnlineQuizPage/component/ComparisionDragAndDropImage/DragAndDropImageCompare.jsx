@@ -31,8 +31,8 @@ const validationForKeyingChoiceType = (choices) => {
     for (let j = 0; j < m; j++) {
       if (temp[j].isMissed == "true") {
         if (
-          String(temp[j]?.dropValue).trim()?.toLowerCase() !==
-          String(temp[j]?.value).trim()?.toLowerCase()
+          !CompareTwoValue(String(temp[j]?.dropValue).trim()?.toLowerCase() ,
+          String(temp[j]?.value).trim()?.toLowerCase())
         )
           return 1;
       }
@@ -146,6 +146,7 @@ const inputRef=useRef()
       setHasAnswerSubmitted(true);
       return;
     } else if (state?.choiceType == "keying") {
+      console.log('keying')
       let status = validationForKeyingChoiceType(dropRef);
       changeAnswerStatus(
         status,

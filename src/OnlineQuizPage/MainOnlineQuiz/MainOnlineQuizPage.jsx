@@ -55,7 +55,7 @@ export function ValidationContextProvider({ children }) {
   );
 }
 const StudentQuizDisplay = ({obj}) => {
-  const {studentAnswerQuestion,setStudentAnswerQuestion,questionWithAnswer,setQuestionWithAnswer}=useContext(ValidationContext)
+  const {studentAnswerQuestion,setStudentAnswerQuestion,questionWithAnswer,setQuestionWithAnswer,handleUpdateStudentAnswerResponse}=useContext(ValidationContext)
   const checkData=()=>{
     let temp={}
     setQuestionWithAnswer((prev)=>{
@@ -77,9 +77,9 @@ const StudentQuizDisplay = ({obj}) => {
   } catch (e) {
     temp = obj;
   }
-  useEffect(()=>{
+
   window.checkData=checkData
-  },[questionWithAnswer])
+  window.handleUpdateStudentAnswerResponse=handleUpdateStudentAnswerResponse
   return (
     <>
           <AllFile type={obj?.question_data[0]?.question_type} obj={obj} temp={temp}/>  
