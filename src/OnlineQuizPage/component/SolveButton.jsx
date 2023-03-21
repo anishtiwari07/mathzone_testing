@@ -72,12 +72,6 @@ export default function SolveButton({ onClick }) {
           Solve
         </button>
       )}
-      {hasAnswerSubmitted && isAnswerCorrect && openAnimation && (
-        <CorrectAnswerAnimation />
-      )}
-      {hasAnswerSubmitted && !isAnswerCorrect && openAnimation && (
-        <GameLoseEmotionMathZone />
-      )}
     </>:null
   );
 }
