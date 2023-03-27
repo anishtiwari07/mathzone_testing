@@ -8,7 +8,7 @@ export default function SelectMultipleSelect({choices,inputRef,answerHasSelected
     
     let [choicesState,setChoicesState]=useState([])
     const {isStudentAnswerResponse}=useContext(ValidationContext)
-    choiceId=String(choiceId).split(',')||[]
+    choiceId=choiceId?.map((item)=>item.toString())
     let prev=useRef(0)
     useEffect(()=>{
         let arr=[]

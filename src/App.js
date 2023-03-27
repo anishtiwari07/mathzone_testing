@@ -5,6 +5,7 @@ function App() {
   const [state, setState] = useState({});
 
   const changeQuestion = (data) => {
+    setState({})
     setState({ ...data });
   };
 window.changeQuestion = changeQuestion;

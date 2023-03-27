@@ -7,6 +7,7 @@ import React, {
 import handleResizeWidth from "./handleResizeWidth";
 import replaceJsonData from "../CommonJSFiles/replacingJsonData";
 import AllFile from "../../components/AllFile";
+import { serializeResponse } from "../CommonJSFiles/gettingResponse";
 export const ValidationContext = React.createContext("Auth Context");
 export function ValidationContextProvider({ children }) {
   const [hasAnswerSubmitted, setHasAnswerSubmitted] = useState(false);
@@ -55,8 +56,20 @@ export function ValidationContextProvider({ children }) {
   );
 }
 const StudentQuizDisplay = ({obj}) => {
-  const {studentAnswerQuestion,setStudentAnswerQuestion,questionWithAnswer,setQuestionWithAnswer,handleUpdateStudentAnswerResponse}=useContext(ValidationContext)
-  const checkData=()=>{
+  const {studentAnswerQuestion,setStudentAnswerQuestion,questionWithAnswer,setQuestionWithAnswer,handleUpdateStudentAnswerResponse,isStudentAnswerResponse,choices,choicesId}=useContext(ValidationContext)
+  const checkData=(data)=>{
+    let arr=["orc","ol",'oprc']
+    let arr2=["Multiple choice","Fill in the blanks","multi select"]
+    let arr3=["ckeditor"]
+    if(arr.includes(data)){
+      return serializeResponse("studentAnswerResponse")
+    }
+    else if(arr2.includes(data)){
+      return choicesId
+    }
+    else if(arr3.includes(data)){
+      return {html:studentAnswerQuestion,choices:choicesId}
+    }
     let temp={}
     setQuestionWithAnswer((prev)=>{
       temp={...prev}
@@ -79,10 +92,11 @@ const StudentQuizDisplay = ({obj}) => {
   }
 
   window.checkData=checkData
-  window.handleUpdateStudentAnswerResponse=handleUpdateStudentAnswerResponse
+  window.handleUpdateStudentAnswerResponse=handleUpdateStudentAnswerResponse;
+  
   return (
     <>
-          <AllFile type={obj?.question_data[0]?.question_type} obj={obj} temp={temp}/>  
+          <AllFile type={obj?.question_data[0]?.question_type} obj={obj} temp={temp} isResponse={isStudentAnswerResponse}/>  
     </>
   );
 };

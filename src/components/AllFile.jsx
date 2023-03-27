@@ -29,11 +29,12 @@ import MainQuestionTextImage from '../OnlineQuizPage/component/QuestionTextImage
 import { ClickableOnPic } from '../OnlineQuizPage/component/questiontextoptions/clickableOnPicture/clickableOnPicture';
 import { ClickableOnYesNo } from '../OnlineQuizPage/component/questiontextoptions/clickableOnYesNo/clickableOnYesNo';
 import MainRandomArrangmentDragDrop from '../OnlineQuizPage/component/RandomArrangemenDragDrop/MainRandomArrangmentDragDrop';
+import DisabledTeacherCkEditor from '../OnlineQuizPage/component/TeacherOnlineQuiz/component/AllDisabledQuestion/Ckeditor/DisabledTeacherCkEditor';
 import MainTensframe from '../OnlineQuizPage/component/TensFrame/MainTensFrame';
 import MainVertical from '../OnlineQuizPage/component/Vertical/MainVertical';
 import MainVerticalWithSymbols from '../OnlineQuizPage/component/VerticalWithSymbols/MainVerticalWithSymbols';
 
-export default function AllFile({obj,temp,type}) {
+export default function AllFile({obj,temp,type,isResponse}) {
   console.log(obj)
   let questionType = {
     "Multiple choice": (
@@ -112,7 +113,11 @@ export default function AllFile({obj,temp,type}) {
     logical_table_kg: <LogicalTableKg data={temp} meter={obj?.question_no} />,
     orc: <MainOrc obj2={obj} meter={obj?.question_no} />,
     ol: <MainOl obj2={obj} meter={obj?.question_no} />,
-    ckeditor: (
+    ckeditor: (isResponse?<DisabledTeacherCkEditor  
+      str={obj?.question_data[0]?.question_text} choiceData={obj?.question_data[0]?.choice_data}
+      choiceId={obj?.question_data[0]?.studentAnswer}
+      upload_file_name={obj?.question_data[0]?.upload_file_name}
+      />:
       <MainCkEditor
         str={obj?.question_data[0]?.question_text}
         meter={obj?.question_no}

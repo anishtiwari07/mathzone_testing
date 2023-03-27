@@ -2,11 +2,14 @@
     height: 50px;
     width:100px;
    border-radius: 5px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
    color: #233584;
     font-weight: bold;
     border: 1px solid black;
     margin-right: 30px;
+    cursor: pointer;
 }
 .outputBox{
     height: 50px;

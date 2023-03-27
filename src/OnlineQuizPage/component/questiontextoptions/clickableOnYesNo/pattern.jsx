@@ -65,8 +65,8 @@ export const Pattern = ({imgUrl,count}) =>{
     }
   
     return<div>
-        {patt.map((arr)=>{
-           return <div style={{textAlign:"center"}}>{ arr.map( (val,i)=>parse(val)  ) }</div>
+        {patt.map((arr,index)=>{
+           return <div style={{textAlign:"center"}} key={index}>{ arr.map( (val,i)=>parse(val)  ) }</div>
         })}
     </div>
 }
