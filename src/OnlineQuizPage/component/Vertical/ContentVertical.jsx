@@ -117,6 +117,7 @@ inputRef.current=[...contentData]
             className={styles.VerticalKeyingFlexBox}
             style={{
               borderTop: `${index === totalRows - 1 ? 2 : 0}px solid black`,
+              borderBottom: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               width: `${totalCols * 35}px`,
             }}
           >
@@ -158,26 +159,6 @@ inputRef.current=[...contentData]
   );
 }
 
-const FlexBox = styled.div`
-  display: flex;
-
-  align-items: center;
-  border-top: ${(props) => (props.border ? props.border : 0)} solid black;
-  width: ${(props) => props.totalWidth * 35}px;
-
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-  }
-`;
-const Input = styled.input`
-  width: 30px;
-  height: 30px;
-  text-align: center;
-`;
 const InlineCss = {
   Input: {
     width: "30px",

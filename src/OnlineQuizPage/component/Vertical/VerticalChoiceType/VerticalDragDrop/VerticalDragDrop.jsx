@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import styled from "styled-components";
 import { useState } from "react";
 import styles from "../../../OnlineQuiz.module.css";
-import HtmlParser from "react-html-parser";
 import Draggable from "react-draggable";
 import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
 import HtmlParserComponent from "../../../../CommonJSFiles/HtmlParserComponent";
@@ -188,6 +186,7 @@ const {isStudentAnswerResponse}=useContext(ValidationContext)
               display: "flex",
               alignItems: "center",
               borderTop: `${index === totalRows - 1 ? 2 : 0}px solid black`,
+              borderBottom: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               width: `${totalCols * 80}px`,
             }}
             key={index}
@@ -227,6 +226,7 @@ const {isStudentAnswerResponse}=useContext(ValidationContext)
           </div>
         ))}
       </div>
+      <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag and Drop the answers.</div>
       <div className={styles.VerticalDragDropFlexBox2} id="verticalDragVal" style={{flexWrap:'wrap'}}>
         {choiceState?.map((value, i) =>
           value?.show ? (
@@ -247,80 +247,3 @@ const {isStudentAnswerResponse}=useContext(ValidationContext)
     </div>
   );
 }
-
-const FlexBox = styled.div`
-  display: flex;
-
-  align-items: center;
-  border-top: ${(props) => (props.border ? props.border : 0)} solid black;
-  width: ${(props) => props.totalWidth * 35}px;
-
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    font-size: 25px;
-    font-weight: 600;
-    color: indigo;
-  }
-`;
-const Input = styled.input`
-  width: 30px;
-  height: 30px;
-  text-align: center;
-`;
-const StylesInline = {
-  Input: {
-    width: "30px",
-    height: "30px",
-    textAlign: "center",
-  },
-};
-const FlexBox2 = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 80%;
-  margin-top: 2rem;
-  cursor: pointer;
-  > div {
-    width: auto;
-
-    display: flex;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    align-items: center;
-    padding-left: 18px;
-    color: #233584;
-    border-radius: 5px;
-    word-break: break;
-    min-height: auto;
-    height: 60px;
-
-    gap: 2rem;
-
-    border: 1px solid black;
-
-    height: auto;
-
-    padding: 1rem;
-  }
-  > div > div {
-    min-width: auto;
-    min-height: auto;
-  }
-  > div > div:nth-child(2) {
-    flex: 1;
-    display: flex;
-
-    flex-wrap: wrap;
-    word-break: break;
-  }
-`;

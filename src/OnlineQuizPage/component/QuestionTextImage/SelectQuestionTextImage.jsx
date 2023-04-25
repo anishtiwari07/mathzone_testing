@@ -3,7 +3,7 @@ import styles from "../OnlineQuiz.module.css";
 import { useState, useRef } from "react";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import { optionSelectStaticMathField } from "../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
-import HtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 export default function SelectQuestionTextImage({
   choices,
   hasAnswerSubmitted,
@@ -51,10 +51,10 @@ export default function SelectQuestionTextImage({
           onClick={(e) => handleSelect(e, i)}
           ref={(el) => (choicesBoxRef.current[i] = el)}
         >
-          <div>
+          <div className="mathzone-circle-selectbox">
             <b>{String.fromCharCode(65 + i)}</b>
           </div>
-          <div>{HtmlParser(item.image,optionSelectStaticMathField)}</div>
+          <div>{parse(item.image,optionSelectStaticMathField)}</div>
         </div>
       ))}
     </div>

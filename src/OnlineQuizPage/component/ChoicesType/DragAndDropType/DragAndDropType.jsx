@@ -224,7 +224,7 @@ useEffect(()=>{
           )}
         </div>
       ))}
-      <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag And Drop</div>
+     <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag and Drop the answers.</div>
       <div className={styles.HorizontalPictureDragDropFlexBox2}>
         {dragState?.map((items, i) => (
           <div id={`${i}`} className={`draggablehfu ${styles.HorizontalPictureDragDropBox}`} style={{border:`${items?.show?0:1}px solid indigo`}}>

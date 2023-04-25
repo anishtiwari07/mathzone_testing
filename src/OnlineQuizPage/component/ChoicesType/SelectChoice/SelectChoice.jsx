@@ -61,7 +61,7 @@ export default function SelectChoice({
               <div key={i}><HtmlParserComponent value={item?.value}/></div>
             ) : (
               <div value={item.value} key={i}>
-                <input style={InlineCss.Input} disabled={true} />
+                <input style={InlineCss.Input} disabled={true} value="?"/>
               </div>
             )
           )}
@@ -106,15 +106,13 @@ export const FlexBox = styled.div`
     justify-content: center;
   }
 `;
-const Input = styled.input`
-  height: 50px;
-  text-align: center;
-  width: 80px;
-`;
+
 const InlineCss = {
   Input: {
     height: "50px",
     textAlign: "center",
     width: "80px",
+    fontSize:18,
+    fontWeight:"bold"
   },
 };
