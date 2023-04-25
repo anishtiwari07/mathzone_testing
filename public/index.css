@@ -82,14 +82,14 @@ img {
 	 border: 1px solid gray;
 	 border-radius: 10px;
 }
- @media screen and (orientation: portrait) {
+ /* @media screen and (orientation: portrait) {
 	 html {
 		 -webkit-transform: translateY(-100%) rotate(90deg);
 		 transform: translateY(-100%) rotate(90deg);
 		 -webkit-transform-origin: left bottom;
 		 transform-origin: left bottom;
 	}
-}
+} */
  .buttonNumpadMain {
 	 width: auto;
 	 height: auto;
@@ -509,7 +509,6 @@ img {
 }
  .right-spac .num1 {
 	 display: inline-block;
-	 float: left;
 	 padding: 4px;
 	 position: relative;
 	 letter-spacing: 18px;
@@ -1275,3 +1274,31 @@ img {
 	 bottom: -12%;
 	 left: -30%;
 }
+
+
+.comparisonOfImages{
+		display: flex;
+		flex-direction: row;
+		margin: 2rem 0.2rem;
+		gap: 4rem;
+		align-items: center;
+}
+@media only screen and (max-width: 600px) {
+	.comparisonOfImages{
+		display: flex;
+		flex-direction: row;
+		margin: 2rem 0.2rem;
+		gap: 2rem;
+		align-items: center;
+	}
+}
+@media only screen and (max-width: 300px) {
+	.comparisonOfImages{
+		display: flex;
+		flex-direction: row;
+		margin: 2rem 0.2rem;
+		gap: 1rem;
+		align-items: center;
+	}
+}
+

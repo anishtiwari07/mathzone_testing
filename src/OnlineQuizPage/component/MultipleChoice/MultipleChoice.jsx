@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import HtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 import {useRef} from "react";
 import styles from "../OnlineQuiz.module.css";
 import SolveButton from "../SolveButton";
@@ -54,7 +54,7 @@ export default function MultipleChoice({ state,meter,choiceId }) {
         {!isStudentAnswerResponse&&<SolveButton onClick={handleSubmitAnswer} />}
        {redAlert&&!hasAnswerSubmitted&& <CustomAlertBoxMathZone />}
         <div id="studentAnswerResponse">
-        <div className={`mathzoneQuestionName mathzoneMultipleChoicequestionName`} style={{whiteSpace:'initial'}}>{HtmlParser(state?.question_text)}</div>
+        <div className={`mathzoneQuestionName mathzoneMultipleChoicequestionName`} style={{whiteSpace:'initial'}}>{parse(state?.question_text)}</div>
         {String(state?.upload_file_name).trim()&&<div><img src={state?.upload_file_name} alt="image not found"/></div>}
         <div>
          <ConditionOnProgressBar meter={meter}/>

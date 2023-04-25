@@ -49,6 +49,7 @@ export default function KeyingchoiceTypePlaceValueChart({
           className={styles.PlaceValueChartKeyingGrid}
           style={{
             gridTemplateColumns: `repeat(${Number(totalColumns) || 1}, 1fr)`,
+            overflow:"auto"
           }}
         >
           {numbers?.map((item, i) => (

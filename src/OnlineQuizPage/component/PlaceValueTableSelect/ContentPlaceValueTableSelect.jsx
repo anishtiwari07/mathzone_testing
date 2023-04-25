@@ -45,7 +45,8 @@ content?.map((items,index)=><div key={index} totalCols={totalCols} className={st
     {items.map((item,i)=>item?.isMissed!=='true'?<div key={i} style={{
       width:`Calc(100% / ${totalCols})`
     }}><HtmlParserComponent value={item.value} /></div>: <div key={i} style={{
-      width:`Calc(100% / ${totalCols})`
+      maxWidth:`Calc(100% / ${totalCols})`,
+      width:`100%`
     }} ref={el=>{
         inputRef.current[currentIndex]=el
         if(currentIndex<totalEmptyBox-1)

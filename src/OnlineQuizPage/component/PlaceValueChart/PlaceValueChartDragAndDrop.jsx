@@ -152,6 +152,7 @@ export default function PlaceValueChartDragAndDrop({
           className={styles.PlaceValueChartDragDropGrid}
           style={{
             gridTemplateColumns: `repeat(${totalColumns}, 1fr)`,
+            overflow:"auto"
           }}
         >
           {numbers?.map((item, i) => (

@@ -175,7 +175,7 @@ export default function DropBoxesImageCompare({
       <div>
         {/* Droppable Part */}
         {rows?.map((items, i) => (
-          <div key={i} totalRows={totalCols} style={InlineCss.FlexBox2}>
+          <div key={i} totalRows={totalCols} className="comparisonOfImages">
             {items?.map((item, index) =>
               item.isMissed === "false" ? (
                 <div
