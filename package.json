@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build --max_old_space_size=8192",
+    "build": "react-scripts build && mv build Mathzone-build/build ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
