@@ -160,7 +160,7 @@ export const VirtualKeyboard = ({
             onClick={() => handlClick(0)}
             ref={(el) => (reference.current[0] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/5.png" className="fraction" id={styles.symbolsWidthHeight} />
+            <img src="/assets/static/media/MathQuillSymbols/5.png" className="fraction" id={styles.symbolsWidthHeight} />
         
           </div>
           <div
@@ -169,7 +169,7 @@ export const VirtualKeyboard = ({
             onClick={() => handlClick(1)}
             ref={(el) => (reference.current[1] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/1.png" className="dot1" id={styles.symbolsWidthHeight}/>
+            <img src="/assets/static/media/MathQuillSymbols/1.png" className="dot1" id={styles.symbolsWidthHeight}/>
             
           </div>
           <div
@@ -178,7 +178,7 @@ export const VirtualKeyboard = ({
             onClick={() => handlClick(2)}
             ref={(el) => (reference.current[2] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/4.png" className="divide" id={styles.symbolsWidthHeight}/>
+            <img src="/assets/static/media/MathQuillSymbols/4.png" className="divide" id={styles.symbolsWidthHeight}/>
             
           </div>
           <div
@@ -187,7 +187,7 @@ export const VirtualKeyboard = ({
             onClick={() => handlClick(3)}
             ref={(el) => (reference.current[3] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/11.png" id={styles.symbolsWidthHeight} />
+            <img src="/assets/static/media/MathQuillSymbols/11.png" id={styles.symbolsWidthHeight} />
            
           </div>
           <div
@@ -196,7 +196,7 @@ export const VirtualKeyboard = ({
             onClick={() => handlClick(4)}
             ref={(el) => (reference.current[4] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/10.png" className="sqroot" id={styles.symbolsWidthHeight}/>
+            <img src="/assets/static/media/MathQuillSymbols/10.png" className="sqroot" id={styles.symbolsWidthHeight}/>
         
           </div>
           <div
@@ -205,7 +205,7 @@ export const VirtualKeyboard = ({
             ref={(el) => (reference.current[5] = el)}
             onClick={() => handlClick(5)}
           >
-            <img src="/static/media/MathQuillSymbols/12.png" className="exponent" id={styles.symbolsWidthHeight}/>
+            <img src="/assets/static/media/MathQuillSymbols/12.png" className="exponent" id={styles.symbolsWidthHeight}/>
           
           </div>
           <div
@@ -215,7 +215,7 @@ export const VirtualKeyboard = ({
             ref={(el) => (reference.current[6] = el)}
           >
             <img
-src="/static/media/MathQuillSymbols/6.png"
+src="/assets/static/media/MathQuillSymbols/6.png"
 className="lessthanequal" id={styles.symbolsWidthHeight}
 />
         
@@ -227,7 +227,7 @@ className="lessthanequal" id={styles.symbolsWidthHeight}
             ref={(el) => (reference.current[7] = el)}
           >
             <img
-src="/static/media/MathQuillSymbols/7.png"
+src="/assets/static/media/MathQuillSymbols/7.png"
 className="greaterthanequal" id={styles.symbolsWidthHeight}
 />
        
@@ -238,7 +238,7 @@ className="greaterthanequal" id={styles.symbolsWidthHeight}
             onClick={() => handlClick(8)}
             ref={(el) => (reference.current[8] = el)}
           >
-            <img src="/static/media/MathQuillSymbols/3.png" className="absolute" id={styles.symbolsWidthHeight}/>
+            <img src="/assets/static/media/MathQuillSymbols/3.png" className="absolute" id={styles.symbolsWidthHeight}/>
   
           </div>
           <div
@@ -247,7 +247,7 @@ className="greaterthanequal" id={styles.symbolsWidthHeight}
             onClick={() => handlClick(9)}
             ref={(el) => (reference.current[9] = el)}
           >
-            <img  src="/static/media/MathQuillSymbols/9.png" className="pi" id={styles.symbolsWidthHeight}/>
+            <img  src="/assets/static/media/MathQuillSymbols/9.png" className="pi" id={styles.symbolsWidthHeight}/>
     
           </div>
           <div
@@ -256,7 +256,7 @@ className="greaterthanequal" id={styles.symbolsWidthHeight}
             onClick={() => handlClick(10)}
             ref={(el) => (reference.current[10] = el)}
           >
-            <img  src="/static/media/MathQuillSymbols/8.png" className="nthroot" id={styles.symbolsWidthHeight}/>
+            <img  src="/assets/static/media/MathQuillSymbols/8.png" className="nthroot" id={styles.symbolsWidthHeight}/>
           
           </div>
           <div
@@ -265,7 +265,7 @@ className="greaterthanequal" id={styles.symbolsWidthHeight}
             onClick={() => handlClick(11)}
             ref={(el) => (reference.current[11] = el)}
           >
-            <img  src="/static/media/MathQuillSymbols/2.png" className="xbase" id={styles.symbolsWidthHeight}/>
+            <img  src="/assets/static/media/MathQuillSymbols/2.png" className="xbase" id={styles.symbolsWidthHeight}/>
         
           </div>
         </div>
