@@ -55,7 +55,7 @@ export default function SolveButton({ onClick }) {
     handleResizeCheckBtn()
   },[hasAnswerSubmitted])
   return (
-   ! false?  <>
+    false?  <>
       {hasAnswerSubmitted ? (
         <div
           className={`${styles.checkButton} ${styles.checkButtonWaiting}`}

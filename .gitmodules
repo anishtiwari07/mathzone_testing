@@ -1,0 +1,3 @@
+[submodule "Mathzone-build"]
+	path = Mathzone-build
+	url = git@github.com:carveniche/Mathzone-build.git
