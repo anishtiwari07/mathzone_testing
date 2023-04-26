@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build Mathzone-build/build ",
+    "build": "react-scripts build && rm -r Mathzone-build/build && mv build Mathzone-build/build && cd Mathzone-build && git add . && git commit -m 'build-commit' && git push && cd ..",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
