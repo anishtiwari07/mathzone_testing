@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useRef, useState, useEffect } from "react";
-import HtmlParser from "react-html-parser/lib/HtmlParser";
+import parse from "html-react-parser";
 import CustomAlertBoxMathZone from "../../CommonJSFiles/CustomAlertBoxMathZone";
 import { serializeResponse } from "../../CommonJSFiles/gettingResponse";
 import { findSelectedValue, manupulateDataSelectChoice, manupulateQuestionContentHorizontal } from "../../CommonJSFiles/ManupulateJsonData/commonManupulateJsonData";
@@ -190,7 +190,7 @@ const inputRef=useRef()
       {redAlert && !hasAnswerSubmitted && <CustomAlertBoxMathZone />}
       <div id="studentAnswerResponse">
         <div className={styles?.questionName}>
-          {HtmlParser(state?.questionName)}
+          {parse(state?.questionName)}
         </div>
         {state?.upload_file_name && (
           <div>
