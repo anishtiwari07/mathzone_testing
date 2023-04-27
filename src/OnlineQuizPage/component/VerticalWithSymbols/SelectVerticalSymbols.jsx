@@ -31,7 +31,7 @@ export default function SelectVerticalSymbols({choices,choiceRef,hasAnswerSubmit
     const [currentChoice,setCurrentChoice]=useState(-1)
     return <div   className={`${styles.flex} ${styles.flexGap2rem} ${styles.flexWrap} ${styles.boxChoices}`}>
         {choices.map((item,i)=><div className={`${styles.flex} ${styles.choiceType} ${styles.selectChoicesFont} ${isStudentAnswerResponse&&(String(item)?.trim()===String(studentAnswer)?.trim())&&styles.selectedChoiceType}`} key={i} onClick={(e)=>handleSelect(e,i)} ref={(el) => (selectOptionsChoiceRef.current[i] = el)}>
-            <div><b>{String.fromCharCode(65+i)}</b></div>
+            <div className="mathzone-circle-selectbox"><b>{String.fromCharCode(65+i)}</b></div>
             <div>{HtmlParser(item)}</div>
         </div  >)}
     </div>

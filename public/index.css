@@ -1324,3 +1324,13 @@ img {
   .mathzone-color-indigo div,.mathzone-color-indigo{
 	color: #233584;
   }
+  .tensframe-image-container img{
+	height:fit-content;
+	width:fit-content;
+	object-fit: contain !important;
+	}
+	.tensframe-image-container{
+	  display:flex;
+	  justify-content: center;
+	  align-items: center;
+	}

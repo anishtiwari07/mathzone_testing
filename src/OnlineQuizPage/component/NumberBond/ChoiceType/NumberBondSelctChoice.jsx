@@ -61,7 +61,7 @@ const RenderBinaryTree = ({ node }) => {
             id={`bottom${element?.row}row${element?.col}col`}
           ></div>
           {element?.isMissed == "true" ? (
-            <input className={styles.InputBox} readOnly={true} type="text" />
+            <input className={styles.InputBox} readOnly={true} type="text" value="?"/>
           ) : (
             element?.value
           )}
@@ -209,7 +209,7 @@ function NumberBondSelctChoice({ datas, inputRef,studentAnswer }) {
             key={i}
             onClick={() => handleChoiceSelection(i)}
           >
-            <div>
+            <div className="mathzone-circle-selectbox">
               {" "}
               <b>{String.fromCharCode(65 + i)}</b>
             </div>

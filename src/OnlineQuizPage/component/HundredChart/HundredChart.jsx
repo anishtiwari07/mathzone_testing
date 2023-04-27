@@ -99,7 +99,7 @@ function HundredChart({ data, meter }) {
                   handleClick(k, i);
                 }}
               >
-                <div className={styles.circle}>
+                <div className={`${styles.circle} mathzone-circle-selectbox`}>
                   {String.fromCharCode(65 + i)}
                 </div>
                 <div className={styles.ans}>{Number(k)}</div>

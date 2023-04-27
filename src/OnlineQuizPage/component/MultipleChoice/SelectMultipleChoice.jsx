@@ -29,7 +29,7 @@ export default function SelectMultipleChoice({choices,inputRef,answerHasSelected
     {choicesState?.map((value,i)=>(value.choices||value?.choice_image)&&<div className={`mathzoneFlex  ${(isStudentAnswerResponse&&String(choiceId)?.trim()===String(value?.choice_id
 )?.trim())?"mathzoneSelectedChoiceType":value.show?"mathzoneSelectedChoiceType":"mathzonePrevSelectionAnswerSelection"}`} style={{padding:`${value?.choice_image?0.5:1}rem 1rem`}} key={i}onClick={()=>handleChoiceSelection(i) }>
     
-        <div> <b>{String.fromCharCode(65 + i)}</b></div>
+        <div className="mathzone-circle-selectbox"> <b>{String.fromCharCode(65 + i)}</b></div>
        <div  className={`mathzoneFlex mathzoneFlexDirectionColumn` }>
         {value.choices&&<div key={i} >{HtmlParser(value.choices)}</div>}
         {value?.choice_image&&<div className="choiceImage"><img src={value?.choice_image} /></div>}

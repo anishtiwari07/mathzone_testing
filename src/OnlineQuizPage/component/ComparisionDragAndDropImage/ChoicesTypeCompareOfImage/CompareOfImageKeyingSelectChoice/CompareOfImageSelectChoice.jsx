@@ -97,7 +97,7 @@ export default function CompareOfImageSelectChoice({
             onClick={() => handleChoiceSelection(i)}
             className={`${(isStudentAnswerResponse&&String(value?.val)?.trim()===String(studentAnswer)?.trim())?styles.selectedChoiceType:value?.show ? styles.selectedChoiceType : ""}`}
           >
-            <div>{String.fromCharCode(65 + i)}</div>
+            <div className="mathzone-circle-selectbox">{String.fromCharCode(65 + i)}</div>
             <div key={i}>{HtmlParser(value.val)}</div>
           </div>
         ))}

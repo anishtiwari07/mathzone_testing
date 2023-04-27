@@ -61,7 +61,7 @@ export default function VerticalSelect({
                 </div>
               ) : (
                 <div value={item.value} key={i}>
-                  <input style={StylesInline.Input} disabled={true} />
+                  <input style={StylesInline.Input} disabled={true} value="?"/>
                 </div>
               )
             )}
@@ -75,7 +75,7 @@ export default function VerticalSelect({
             onClick={() => handleChoiceSelection(i)}
             className={`${isStudentAnswerResponse&&String(value.val)?.trim()===String(studentAnswer)?.trim()?styles.selectedChoiceType:value?.show ? styles.selectedChoiceType : ""}`}
           >
-            <div>{String.fromCharCode(65 + i)}</div>
+            <div className="mathzone-circle-selectbox">{String.fromCharCode(65 + i)}</div>
             <div key={i}>{HtmlParser(value.val)}</div>
           </div>
         ))}

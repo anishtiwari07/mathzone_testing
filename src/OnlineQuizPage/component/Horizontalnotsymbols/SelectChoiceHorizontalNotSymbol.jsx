@@ -52,7 +52,7 @@ function SelectChoiceHorizontalNotSymbol({
       ref={(el) => (selectOptionsChoiceRef.current[index] = el)}
       onClick={() => selectOptionHandler(index)}
     >
-      <div>
+      <div className="mathzone-circle-selectbox">
         <b>{String.fromCharCode(65 + index)}</b>
       </div>
       <div style={{paddingRight:"1rem"}}><HtmlParserComponent value={item}/></div>

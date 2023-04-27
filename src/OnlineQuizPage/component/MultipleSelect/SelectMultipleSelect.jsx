@@ -31,7 +31,7 @@ export default function SelectMultipleSelect({choices,inputRef,answerHasSelected
     return <div className={styles.multiSelectFlexBox}>
     {choicesState?.map((value,i)=>(value.choices||value?.choice_image)&&<div className={`${styles.flex}  ${(isStudentAnswerResponse&&choiceId?.includes(String(value?.choice_id)?.trim()
 ))?styles.selectedChoiceType:value.show?styles.selectedChoiceType:styles.prevSelectionAnswerSelection}`} style={{padding:`${value?.choice_image?0:1}rem 1rem`}} key={i}onClick={()=>handleChoiceSelection(i) }>
-        <div> <b>{String.fromCharCode(65 + i)}</b></div>
+        <div className="mathzone-circle-selectbox"> <b>{String.fromCharCode(65 + i)}</b></div>
        <div  className={`${styles.flex} ${styles.flexDirectionColumn}` }>
         {value.choices&&<div key={i} >{HtmlParser(value.choices)}</div>}
         {value?.choice_image&&<div className="choiceImage"><img src={value?.choice_image} /></div>}

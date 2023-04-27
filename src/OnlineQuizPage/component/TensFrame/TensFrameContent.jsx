@@ -3,7 +3,7 @@ import styled from "styled-components"
 import {useRef} from "react";
 import styles from "./../OnlineQuiz.module.css"
 function DisplayImageCard({className,images}) { 
-    return <div className={className}>
+    return <div className={`${className??""} tensframe-image-container`}>
         {images}
         </div>;
   }

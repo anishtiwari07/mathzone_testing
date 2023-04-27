@@ -48,7 +48,7 @@ export default function BlockBaseImageChoiceSelection({
             ref={(el) => (choicesBoxRef.current[i] = el)}
             className={`${(isStudentAnswerResponse&&String(value)?.trim()===String(studentAnswer)?.trim())?styles.selectedChoiceType:""}`}
           >
-            <div>{String.fromCharCode(65 + i)}</div>
+            <div className="mathzone-circle-selectbox">{String.fromCharCode(65 + i)}</div>
             <div key={i}>{HtmlParser(value)}</div>
           </div>
         ))}

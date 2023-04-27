@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import SolveButton from "../SolveButton";
 import styles2 from "../OnlineQuiz.module.css";
-import { ProgressBorder } from "../../Modal2/modal2";
 import { serializeResponse } from "../../CommonJSFiles/gettingResponse";
 import CustomAlertBoxMathZone from "../../CommonJSFiles/CustomAlertBoxMathZone";
 import ConditionOnProgressBar from "../../CommonJsxComponent/ConditionOnProgressBar";
@@ -117,7 +116,7 @@ function LogicalTableKg({data, meter }) {
   };
   const [redAlert,setRedAlert]=useState(false)
   return (
-    <div>
+    <div className={styles.student_answer_mathzone}>
       {!isStudentAnswerResponse&&<SolveButton
         onClick={handleSubmit}
         answerHasSelected={hasAnswerSubmitted}
@@ -129,14 +128,21 @@ function LogicalTableKg({data, meter }) {
         <div>
           <ConditionOnProgressBar meter={meter} />
         </div>
-        <div>
+        <table>
+         
           {data.questionContent.map((e, i) => (
-            <div className={styles.basic}>
+          <tr>
+              
               {e.map((item, index) => {
                 return (
-                  <div>
-                    {item.isMissed === "" ? (
-                      <div></div>
+                  <td>
+                    <div>
+                    {(item.isMissed===""||item.isMissed===undefined)? (
+                      <div className={styles.inner} style={{flexDirection:'column',color:'indigo'}}>
+                       
+                        <div>{parse(item?.image)} </div>
+                        <div>{parse(item?.text)}</div>
+                      </div>
                     ) : (
                       <div className={styles.inner}>
                         <div
@@ -152,11 +158,13 @@ function LogicalTableKg({data, meter }) {
                       </div>
                     )}
                   </div>
+                  </td>
                 );
               })}
-            </div>
+          
+          </tr>
           ))}
-        </div>
+        </table>
       </div>
     </div>
   );

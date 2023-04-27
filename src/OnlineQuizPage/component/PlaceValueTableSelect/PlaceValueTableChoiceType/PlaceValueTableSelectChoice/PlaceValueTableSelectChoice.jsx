@@ -73,7 +73,7 @@ export default function ContentPlaceValueTableSelect({
                 <div  style={{
                   width: `Calc(100% / ${totalCols})`,
                 }}>
-                  <input disabled={true} />
+                  <input disabled={true} value="?"/>
                 </div>
               )
             )}
@@ -92,7 +92,7 @@ export default function ContentPlaceValueTableSelect({
             key={i}
             onClick={() => handleChoiceSelection(i)}
           >
-            <div>
+            <div className="mathzone-circle-selectbox">
               {" "}
               <b>{String.fromCharCode(65 + i)}</b>
             </div>

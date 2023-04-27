@@ -37,7 +37,7 @@ export default function SelectCountOnTensframe({ choices, inputRef,studentAnswer
             key={i}
             onClick={() => handleChoiceSelection(i)}
           >
-            <div>
+            <div className="mathzone-circle-selectbox">
               {" "}
               <b>{String.fromCharCode(65 + i)}</b>
             </div>

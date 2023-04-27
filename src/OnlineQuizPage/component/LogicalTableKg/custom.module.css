@@ -15,11 +15,20 @@ custom.module.css
   /* outline: solid yellow; */
   margin-top: 50px;
 }
-
+.student_answer_mathzone table{
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.student_answer_mathzone tr,.student_answer_mathzone td{
+  height:100%;
+}
+.student_answer_mathzone td{
+border:1px lightgrey solid;
+}
 .inner {
-  height: 40px;
+  height:100%;
   width: 100px;
-  outline: 1px lightgrey solid;
+  min-height: 40px;;
   display: flex;
   justify-content: center;
   align-items: center;

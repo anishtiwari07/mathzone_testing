@@ -68,7 +68,7 @@ export default function TensFrame({ state, totalRows, totalColumns, meter }) {
         <div>
          <ConditionOnProgressBar meter={meter} />
         </div>
-        <div class={styles.contentParent} ref={heightDiv}>
+        <div className={styles.contentParent} ref={heightDiv}>
          
           <TensframeContent
             totalColumns={totalColumns}
