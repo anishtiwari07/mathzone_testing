@@ -193,7 +193,7 @@ useEffect(()=>{
   return (
     <>
       {dropState?.map((items, index) => (
-        <div className={styles.HorizontalPictureDragDropFlexBox} key={index} style={{marginBottom:'1rem'}}>
+        <div className={`${styles.HorizontalPictureDragDropFlexBox} mathzone-color-indigo`} key={index} style={{marginBottom:'1rem'}}>
           {items?.map((item, i) =>
             item.isMissed !== "true" ? (
               <div className="fontColor" style={{fontSize:16,fontWeight:"bold",gap:"1rem"}}>{parse(item.value,optionSelectStaticMathField)}</div>

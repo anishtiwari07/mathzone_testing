@@ -37,7 +37,7 @@ export default function VerticalKeyingChoiceType({
   }, []);
   inputRef.current = [...row];
   return row?.map((items, index) => (
-    <div className={styles.HorizontalPictureKeyingFlexBox} key={index}>
+    <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index} >
       {items?.map((item, i) =>
         item.isMissed === "false" ? (
           <div key={i}>

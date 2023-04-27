@@ -1425,12 +1425,15 @@ height:auto;
 }
 
 .HorizontalPictureDragDropFlexBox {
-  display: flex;
+text-align: center;
   align-items: center;
   gap: 18px;
   margin-top: 2rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+}
+.HorizontalPictureDragDropFlexBox td{
+  padding:10px;
 }
 
 .HorizontalPictureDragDropFlexBox > div {

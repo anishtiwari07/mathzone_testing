@@ -86,7 +86,7 @@ export default function KeyingHorizontalFillUpsEquationType({
   return (
     <div>
       {row?.map((items, index) => (
-        <div className={styles.HorizontalPictureKeyingFlexBox} key={index}>
+        <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index}>
           {items?.map((item, i) =>
             item.isMissed !== "true" ? (
               <div

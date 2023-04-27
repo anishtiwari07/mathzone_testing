@@ -53,7 +53,7 @@ export default function SelectChoice({
     <>
       {row?.map((items, index) => (
         <div
-          className={styles.HorizontalPictureSelectChoiceFlexBox}
+          className={`${styles.HorizontalPictureSelectChoiceFlexBox} mathzone-color-indigo`}
           key={index}
         >
           {items?.map((item, i) =>

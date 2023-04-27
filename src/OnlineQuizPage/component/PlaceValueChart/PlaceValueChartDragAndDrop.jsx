@@ -205,9 +205,7 @@ export default function PlaceValueChartDragAndDrop({
             )
           )}
         </div>
-        <div style={{ marginTop: "0.7rem" }} className={styles.solutionText}>
-          Drag and Drop Answer
-        </div>
+        <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag and Drop the answers.</div>
         <div className={styles.PlaceValueChartDragDropFlexBox2}>
           {dragState?.map((item, i) => (
        

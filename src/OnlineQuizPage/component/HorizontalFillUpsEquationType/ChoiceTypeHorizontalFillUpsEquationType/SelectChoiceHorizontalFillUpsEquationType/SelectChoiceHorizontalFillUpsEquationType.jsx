@@ -54,7 +54,7 @@ export default function SelectChoiceHorizontalFillUpsEquationType({
     <>
       {row?.map((items, index) => (
         <div
-          className={styles.HorizontalPictureSelectChoiceFlexBox}
+          className={`${styles.HorizontalPictureSelectChoiceFlexBox} mathzone-color-indigo`}
           key={index}
         >
           {items?.map((item, i) =>
@@ -71,7 +71,7 @@ export default function SelectChoiceHorizontalFillUpsEquationType({
         </div>
       ))}
       <div
-        className={`${styles.flex} ${styles.flexGap2rem} ${styles.flexWrap} ${styles.boxChoices}`}
+        className={`${styles.flex} ${styles.flexGap2rem} ${styles.flexWrap} mathzone-color-indigo ${styles.boxChoices}`}
       >
         {choicesState?.map((value, i) => (
           <div
@@ -86,7 +86,7 @@ export default function SelectChoiceHorizontalFillUpsEquationType({
             key={i}
             onClick={() => handleChoiceSelection(i)}
           >
-            <div>
+            <div className="mathzone-circle-selectbox">
               {" "}
               <b>{String.fromCharCode(65 + i)}</b>
             </div>

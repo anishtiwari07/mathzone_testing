@@ -193,37 +193,41 @@ useEffect(()=>{
   inputRef.current=dropState
   return (
     <>
-      {dropState?.map((items, index) => (
-        <div className={styles.HorizontalPictureDragDropFlexBox} key={index}>
+     <table className="mathzone-color-indigo">
+     {dropState?.map((items, index) => (
+        <tr className={styles.HorizontalPictureDragDropFlexBox} key={index}>
           {items?.map((item, i) =>
             item.isMissed === "false" ? (
-              <div className="fontColor"><HtmlParserComponent value={item?.value} /></div>
+              <td><div className="fontColor"><HtmlParserComponent value={item?.value} /></div></td>
             ) : (
             
-              <div
+             <td>
+               <div
                
-                className={`droppablehfu ${styles.HorizontalPictureDragDropBox}`}
-                id={`${index} ${i}`}
-                value={item.value}
-                key={i}
-                style={
-                  {
-                    border:`${item?.show||isStudentAnswerResponse?0:1}px dashed black`
-                  }
-                }
-              >
-                {(isStudentAnswerResponse||item?.show) && (
-                  <Draggable onStop={(e) => handleStop2(e, index, i)} disabled={hasAnswerSubmitted||isStudentAnswerResponse} onDrag={handleDrag} onStart={handleDragStart}>
-                    <div style={{
-                      backgroundColor:`${item?.show||isStudentAnswerResponse?'indigo':'initial'}`
-                    }} ><HtmlParserComponent value={isStudentAnswerResponse?item[student_answer]:item?.dropVal}/></div>
-                  </Draggable>
-                )}
-              </div>
+               className={`droppablehfu ${styles.HorizontalPictureDragDropBox}`}
+               id={`${index} ${i}`}
+               value={item.value}
+               key={i}
+               style={
+                 {
+                   border:`${item?.show||isStudentAnswerResponse?0:1}px dashed black`
+                 }
+               }
+             >
+               {(isStudentAnswerResponse||item?.show) && (
+                 <Draggable onStop={(e) => handleStop2(e, index, i)} disabled={hasAnswerSubmitted||isStudentAnswerResponse} onDrag={handleDrag} onStart={handleDragStart}>
+                   <div style={{
+                     backgroundColor:`${item?.show||isStudentAnswerResponse?'indigo':'initial'}`
+                   }} ><HtmlParserComponent value={isStudentAnswerResponse?item[student_answer]:item?.dropVal}/></div>
+                 </Draggable>
+               )}
+             </div>
+             </td>
             )
           )}
-        </div>
+        </tr>
       ))}
+     </table>
      <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag and Drop the answers.</div>
       <div className={styles.HorizontalPictureDragDropFlexBox2}>
         {dragState?.map((items, i) => (
