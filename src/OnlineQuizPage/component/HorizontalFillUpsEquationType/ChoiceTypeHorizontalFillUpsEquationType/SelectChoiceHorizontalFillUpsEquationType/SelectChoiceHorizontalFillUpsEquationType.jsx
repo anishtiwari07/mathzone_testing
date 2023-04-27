@@ -64,7 +64,7 @@ export default function SelectChoiceHorizontalFillUpsEquationType({
               </div>
             ) : (
               <div value={item.value} key={i}>
-                <input style={InlineCss.Input} disabled={true} />
+                <input style={InlineCss.Input} disabled={true} value="?"/>
               </div>
             )
           )}

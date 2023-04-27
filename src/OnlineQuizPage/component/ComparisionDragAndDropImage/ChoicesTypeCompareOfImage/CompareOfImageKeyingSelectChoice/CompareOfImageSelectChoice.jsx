@@ -54,6 +54,7 @@ export default function CompareOfImageSelectChoice({
       margin: "2rem 0.2rem",
       gap: "4rem",
       alignItems: "center",
+      fontSize:18,
     },
     InsideDiv: {
       width: `Calc((100% - ${totalCols}*2rem) / ${totalCols})`,
@@ -80,7 +81,7 @@ export default function CompareOfImageSelectChoice({
                 <div style={InlineCss.InsideDiv}>{HtmlParser(item.value)}</div>
               ) : (
                 <div style={InlineCss.InsideDiv}>
-                  <input disabled={true} style={InlineCss.Input} />
+                  <input disabled={true} style={InlineCss.Input} value={"?"}/>
                 </div>
               )
             )}

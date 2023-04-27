@@ -188,6 +188,7 @@ const {isStudentAnswerResponse}=useContext(ValidationContext)
               borderTop: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               borderBottom: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               width: `${totalCols * 80}px`,
+              maxWidth:'fit-content'
             }}
             key={index}
             border={index === totalRows - 1 && "2px"}
