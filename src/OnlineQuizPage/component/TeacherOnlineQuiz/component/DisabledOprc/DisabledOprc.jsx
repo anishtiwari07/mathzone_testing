@@ -1,6 +1,6 @@
 import styles from "../../../OnlineQuiz.module.css";
 import parse from "html-react-parser";
-import { StaticMathField } from "react-mathquill";
+import { StaticMathField } from "../../component/../../../ExternalPackages";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import shuffle from "shuffle-array";

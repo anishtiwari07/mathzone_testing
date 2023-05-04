@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import parse from "html-react-parser";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import shuffle from "shuffle-array";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../ExternalPackages";
 import styled from "styled-components";
 import styles from "../OnlineQuiz.module.css";
 import SolveButton from "../SolveButton";
-import OlAnswered from "./OlAnswered";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import { ProgressBorder } from "../../Modal2/modal2";
 // a little function to help us with reordering the result

@@ -7,10 +7,9 @@ import {
   optionSelectStaticMathField,
   VirtualKeyboard,
 } from "../../replaceDomeNode/ReplaceDomNode";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../../../ExternalPackages";
 import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
 import { student_answer } from "../../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
-import HtmlParser from "react-html-parser";
 export default function KeyingHorizontalFillUpsEquationType({
   inputRef,
   content,

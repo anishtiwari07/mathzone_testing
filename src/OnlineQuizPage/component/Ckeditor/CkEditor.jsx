@@ -1,17 +1,13 @@
-import HTMLReactParser, { domToReact } from "html-react-parser";
-import styles from "./tooltip.module.css";
+import HTMLReactParser from "html-react-parser";
 import { useEffect, useState, useRef, useContext } from "react";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../ExternalPackages";
 import SolveButton from "../SolveButton";
 import GenStyles from "../OnlineQuiz.module.css";
-import { Modal2, ProgressBorder } from "../../Modal2/modal2";
-import CkEditorAnswer from "./CkEditorAnswer";
+import { ProgressBorder } from "../../Modal2/modal2";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
-import Draggable from "react-draggable";
 import { CkeditorVirtualKeyboard } from "./CkEditorVirtualKeyboard/CkeditorVirtualKeyboard";
 import SelectMultipleChoice from "../MultipleChoice/SelectMultipleChoice";
 import {
-  serializeResponse,
   serializeResponse2,
 } from "../../CommonJSFiles/gettingResponse";
 import CompareTwoValue from "../compareTwoValue";

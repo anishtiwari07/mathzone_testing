@@ -5,9 +5,8 @@ import styled from "styled-components";
 import parse from "html-react-parser";
 import styles from "../OnlineQuiz.module.css";
 
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../ExternalPackages";
 import SolveButton from "../SolveButton";
-import OrcAnswered from "./OrcAnswered";
 import { ProgressBorder } from "../../Modal2/modal2";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import { serializeResponse } from "../../CommonJSFiles/gettingResponse";

@@ -4,7 +4,7 @@ import cloneDeep from "lodash.clonedeep";
 import animationData from "../../assets/LottieAnimation/correctAnswerLottie.json";
 import styles from "./LottieMathZone.module.css"
 const removeWhiteSpace=(container)=>{
-let rects=container.current?.querySelector('rect')
+
 }
 export default function CorrectAnswerAnimation() {
   const container = useRef(null);

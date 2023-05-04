@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 import { DivBox,  Grid } from "./Oprc";
 import { ProgressBorder } from "../../../../../Modal2/modal2";
 import HtmlParser from "react-html-parser";
-import { StaticMathField } from "react-mathquill";
+import { StaticMathField } from "../../../../../ExternalPackages";
 export default function DisabledTeacherOprcAnswered({ obj,question_text,meter }) {
   meter=Number(meter)||0
     const [dropState,setDropState]=useState([])

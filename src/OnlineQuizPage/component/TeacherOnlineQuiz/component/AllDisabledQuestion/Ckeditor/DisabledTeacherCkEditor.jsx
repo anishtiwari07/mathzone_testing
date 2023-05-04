@@ -1,10 +1,9 @@
  import HTMLReactParser from "html-react-parser";
 import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { StaticMathField } from "../../../../../ExternalPackages";
 import ConditionOnProgressBar from "../../../../../CommonJsxComponent/ConditionOnProgressBar";
 import { ValidationContext } from "../../../../../MainOnlineQuiz/MainOnlineQuizPage";
-import { ProgressBorder } from "../../../../../Modal2/modal2";
 import SolutionMultipleChoice from "../../../../MultipleChoice/SolutionMultipleChoice";
 
 import styles from "../../../../OnlineQuiz.module.css";

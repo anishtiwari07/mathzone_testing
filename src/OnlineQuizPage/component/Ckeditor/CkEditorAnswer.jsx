@@ -1,10 +1,8 @@
 import HTMLReactParser from "html-react-parser";
 import React, { useContext, useEffect, useRef } from "react";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import {StaticMathField } from "../../ExternalPackages";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
-import SelectMultipleChoice from "../MultipleChoice/SelectMultipleChoice";
 import SolutionMultipleChoice from "../MultipleChoice/SolutionMultipleChoice";
-import CkeditorAnswerSelectChoice from "./CkeditorAnswerSelectChoice";
 import styles from "../OnlineQuiz.module.css"
 const disabledEditor = () => {
   let parent = document.getElementById("removeQuizEditor");

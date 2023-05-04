@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { StaticMathField } from "react-mathquill";
+import { StaticMathField } from "../../component/../../../ExternalPackages";
 import styles from "../../../OnlineQuiz.module.css";
 import OlAnswered from "../../../OL/OlAnswered";
 function DisabledOl({ obj }) {

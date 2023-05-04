@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "../OnlineQuiz.module.css";
 import parse from "html-react-parser";
-import { DivBox, DivBox2, Grid } from "./Oprc";
-import { StaticMathField } from "react-mathquill";
+import { DivBox, Grid } from "./Oprc";
+import { StaticMathField } from "../../ExternalPackages";
 export default function OprcAnswered({ obj }) {
     const [dropState,setDropState]=useState([])
     const optionSelect = {

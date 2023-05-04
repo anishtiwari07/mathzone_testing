@@ -4,8 +4,7 @@ import Draggable from "react-draggable";
 import styled from "styled-components"
 import parse from "html-react-parser";
 import styles from "../OnlineQuiz.module.css";
-
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../../../../ExternalPackages";
 import { ProgressBorder } from "../../../../../Modal2/modal2";
 
 

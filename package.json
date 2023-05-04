@@ -16,7 +16,7 @@
     "react-dom": "^16.8.0",
     "react-draggable": "^4.4.3",
     "react-html-parser": "^2.0.2",
-    "react-mathquill": "0.2.8",
+    "react-mathquill-extenstion": "^1.0.0",
     "react-scripts": "^4.0.3",
     "shuffle-array": "^1.0.1",
     "styled-components": "^5.3.3"

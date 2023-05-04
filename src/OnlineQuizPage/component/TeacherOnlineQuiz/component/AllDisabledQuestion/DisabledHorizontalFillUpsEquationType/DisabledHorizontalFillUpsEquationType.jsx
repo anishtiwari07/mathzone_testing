@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import styles from "./DisabledHorizontalFillUpsEquationType.module.css";
 
 import parse from "html-react-parser";
-import { EditableMathField, StaticMathField } from "react-mathquill";
 import { optionSelectStaticMathField } from "../../../../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
 import { ProgressBorder } from "../../../../../Modal2/modal2";
 import DisabledContentHorizontalFillUpsEquationType from "./DisabledContentHorizontalFillUpsEquationType";

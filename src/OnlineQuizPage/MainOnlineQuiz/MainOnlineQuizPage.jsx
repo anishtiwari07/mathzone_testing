@@ -4,10 +4,10 @@ import React, {
   forwardRef,
   useContext,
 } from "react";
-import handleResizeWidth from "./handleResizeWidth";
 import replaceJsonData from "../CommonJSFiles/replacingJsonData";
 import AllFile from "../../components/AllFile";
 import { serializeResponse } from "../CommonJSFiles/gettingResponse";
+import "../react-mathquill-extension.css"
 export const ValidationContext = React.createContext("Auth Context");
 export function ValidationContextProvider({ children }) {
   const [hasAnswerSubmitted, setHasAnswerSubmitted] = useState(false);

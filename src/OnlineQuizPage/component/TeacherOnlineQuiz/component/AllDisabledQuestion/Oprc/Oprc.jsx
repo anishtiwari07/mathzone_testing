@@ -1,6 +1,6 @@
 import styles from "../OnlineQuiz.module.css";
 import parse from "html-react-parser";
-import { EditableMathField, StaticMathField } from "react-mathquill";
+import { EditableMathField, StaticMathField } from "../../../../../ExternalPackages";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Draggable from "react-draggable";
