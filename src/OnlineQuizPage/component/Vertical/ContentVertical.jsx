@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
-import styled from "styled-components";
+
 import { useState } from "react";
 import styles from "../OnlineQuiz.module.css";
-import HtmlParser from "react-html-parser";
+
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import HtmlParserComponent from "../../CommonJSFiles/HtmlParserComponent";
 import { student_answer } from "../../CommonJSFiles/ManupulateJsonData/oneDto2D";
@@ -107,7 +107,7 @@ export default function ContentVertical({
 
 inputRef.current=[...contentData]
   return (
-    <div>
+    <div className="mathzone-color-indigo">
       <div style={{ marginTop: "4rem" }}>
         {contentData?.map((items, index) => (
           <div
@@ -119,6 +119,7 @@ inputRef.current=[...contentData]
               borderTop: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               borderBottom: `${index === totalRows - 1 ? 2 : 0}px solid black`,
               width: `${totalCols * 35}px`,
+              padding:`${index === totalRows - 1 ? 5 : 0}px 0`,
             }}
           >
             {items?.map((item, i) =>

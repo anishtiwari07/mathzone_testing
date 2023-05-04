@@ -74,7 +74,8 @@ inputRef.current=rows
     border:" 1px solid black",
     padding: "1rem",
     alignItems: "end",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    fontWeight:'bold'
 }
 
           }onClick={() => selectOptionHandler(i)} className={`${(isStudentAnswerResponse&&String(item?.value)?.trim()===String(studentAnswer)?.trim())?styles.selectedChoiceType: item.show

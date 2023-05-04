@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import HtmlParser from "react-html-parser";
 import {useState,useRef} from "react";
 import styles from "../OnlineQuiz.module.css";
-import { Modal2, ProgressBorder } from "../../Modal2/modal2";
 import SolveButton from "../SolveButton";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
 import OptMultPicChoiceSelectEqn from "./OptMultPicChoiceSelectEqn";
@@ -10,7 +8,7 @@ import parse from "html-react-parser"
 import { optionSelectStaticMathField } from "../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
 import CustomAlertBoxMathZone from "../../CommonJSFiles/CustomAlertBoxMathZone";
 import ConditionOnProgressBar from "../../CommonJsxComponent/ConditionOnProgressBar";
-import oneDto2DStartWithSpecificRow, { findSelectedValue, insertDataOptionMultipleChoice } from "../../CommonJSFiles/ManupulateJsonData/commonManupulateJsonData";
+import  { findSelectedValue,  } from "../../CommonJSFiles/ManupulateJsonData/commonManupulateJsonData";
 import { student_answer } from "../../CommonJSFiles/ManupulateJsonData/oneDto2D";
 const validationForSelectMultipleSelect=(choices)=>{
 let n=choices?.length||0
