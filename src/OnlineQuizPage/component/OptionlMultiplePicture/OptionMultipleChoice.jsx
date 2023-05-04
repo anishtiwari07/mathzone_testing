@@ -61,7 +61,7 @@ function OptionMultipleChoice({ state, totalRows,meter,response=false }) {
         
        {!isStudentAnswerResponse&&<SolveButton onClick={handleSubmitAnswer} answerHasSelected={showAnswer}/>}
        {redAlert&&!hasAnswerSubmitted&& <CustomAlertBoxMathZone />}
-        <div id="studentAnswerResponse"> 
+        <div id="studentAnswerResponse" className="mathzone-color-indigo"> 
         <div  className={styles.questionName}>{parse(state?.questionName)}</div>
         {state?.upload_file_name&&<div><img src={state?.upload_file_name} alt="image not found"/></div>}
          <div>

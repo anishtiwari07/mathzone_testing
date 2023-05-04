@@ -12,6 +12,7 @@ import MainHorizontalPicture from '../OnlineQuizPage/component/HorizontalPicture
 import HorizontalPreviewClick from '../OnlineQuizPage/component/HorizontalPreviewClick';
 import HundredChart from '../OnlineQuizPage/component/HundredChart/HundredChart';
 import LogicalTableKg from '../OnlineQuizPage/component/LogicalTableKg/LogicalTableKg';
+import MainLongDivision from '../OnlineQuizPage/component/LongDivision/MainLongDivision';
 import MainMatchObjectHorizontal from '../OnlineQuizPage/component/MatchObjectHorizontal/MainMatchObjectHorizontal';
 import MainMatchObjectVertical from '../OnlineQuizPage/component/MatchObjectVertical/MainMatchObjectVertical';
 import MainMemoryCardGame from '../OnlineQuizPage/component/MemoryCardGame/MainMemoryCardGame';
@@ -130,6 +131,9 @@ export default function AllFile({obj,temp,type,isResponse}) {
 
     memory_card_game: (
       <MainMemoryCardGame obj={temp} meter={obj?.question_no} teacher={false} />
+    ),
+    long_division: (
+      <MainLongDivision obj={temp} meter={obj?.question_no} teacher={false} />
     ),
   };
 

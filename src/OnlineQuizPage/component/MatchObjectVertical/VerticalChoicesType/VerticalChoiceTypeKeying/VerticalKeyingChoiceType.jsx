@@ -36,7 +36,7 @@ export default function VerticalKeyingChoiceType({
   inputRef.current = row;
 
   return row?.map((items, index) => (
-    <div key={index}>
+    <div key={index} className={"mathzone-color-indigo"}>
       {items?.map((item, i) =>
         item.isMissed === "false" ? (
           <div className={styles.MatchObjectVerticalKeyingFlexBox3}>
@@ -80,33 +80,11 @@ export const FlexBox = styled.div`
     justify-content: center;
   }
 `;
-const Input = styled.input`
-  height: 50px;
-  text-align: center;
-  width: 100px;
-  
-  
-`;
+
 const StylesInline={
   Input:{height: "50px",
   textAlign: "center",
   width: "100px",
   }
 }
-const FlexBox3 = styled.div`
-  width: 80%;
-  margin: 1rem 0;
-  display: flex;
-  gap: 4rem;
-  align-items:center;
-  > div {
-    max-width: calc(50% - 2rem);
-    min-width: 90px;
-    width: auto;
-    font-weight:600;
-  }
-  > div {
-    display: flex;
-    justify-content: left;
-  }
-`;
+

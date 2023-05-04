@@ -984,14 +984,17 @@ height:auto;
 }
 
 .MatchObjectVerticalVerticalFlexBox2 > div > div {
-  min-width: auto;
-  min-height: auto;
+  min-width: 40px;
+  min-height: 40px;
+  width:40px;
+  aspect-ratio: 1/1;
+  
 }
 
 .MatchObjectVerticalVerticalFlexBox2 > div > div:nth-child(2) {
   flex: 1;
   display: flex;
-
+  align-items: center;
   flex-wrap: wrap;
   word-break: break;
 }
@@ -3011,4 +3014,65 @@ text-align: center;
 .closeButton a:hover {
   text-decoration: underline !important;
   color: red !important;
+}
+/* Long division */
+
+.LongDivisonDragDropFlexBox3 {
+  width: auto;
+ 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color:indigo;
+}
+
+.LongDivisonDragDropFlexBox3 > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.LongDivisonDragDropFlexBox3 > div {
+  display: flex;
+}
+
+.LongDivisonDragDropFlexBox2 {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.LongDivisonDragDropFlexBox2 > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LongDivisonDragDropFlexBox {
+  display: flex;
+ 
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.LongDivisonDragDropBox {
+  min-height: 50px;
+  height: auto;
+  width: auto;
+  text-align: center;
+  min-width: 96px;
+  border: 1px solid black;
+}
+
+.LongDivisonDragDropBox > div {
+  min-width: inherit;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+
 }
