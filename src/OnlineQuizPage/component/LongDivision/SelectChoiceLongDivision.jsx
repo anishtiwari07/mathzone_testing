@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import HtmlParser from "react-html-parser/lib/HtmlParser";
-import styled from "styled-components";
 import styles from "../OnlineQuiz.module.css";
 export default function LongDivisonSelectChoice({
   choices,
@@ -38,6 +37,7 @@ export default function LongDivisonSelectChoice({
     prev.current = i;
   };
   inputRef.current = choicesState;
+  const defaultBorderRef=useRef(3)
   return (
     <>
    <div style={{width:'fit-content'}}>
@@ -51,8 +51,14 @@ export default function LongDivisonSelectChoice({
               <div
               key={i}
                 className={styles.LongDivisonDragDropFlexBox3}
-                style={{   width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`,borderBottom:`${(index%2===0&&i>0)?1:0}px solid indigo`,
-                borderLeft:`${(index>0&&i===1)?1:0}px solid indigo`,padding:10}}
+                style={{
+                  borderBottom:`${(index%2===0&&i>0)?defaultBorderRef.current:0}px solid indigo`,
+                    borderRight:`${(index===1&&i===0)?defaultBorderRef.current+1:0}px solid indigo`,padding:10,
+                    paddingRight:5,
+                    borderRadius:`${index===1&&i===0?"150px":0}`,position:`${index===1&&i===0?"relative":"static"}`,top:-2,left:13,
+                    justifyContent:`${index>0&&i===0?"flex-end":"center"}`
+      
+                   }}
               >
                
                 <div>
@@ -67,8 +73,13 @@ export default function LongDivisonSelectChoice({
               <div
               key={i}
                 className={styles.LongDivisonDragDropFlexBox3}
-                style={{   width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`,borderBottom:`${(index%2===0&&i>0)?1:0}px solid indigo`,
-                borderLeft:`${(index>0&&i===1)?1:0}px solid indigo`,padding:10}}
+                style={{
+                  borderBottom:`${(index%2===0&&i>0)?defaultBorderRef.current:0}px solid indigo`,
+                    borderRight:`${(index===1&&i===0)?defaultBorderRef.current+1:0}px solid indigo`,padding:10, paddingRight:5,
+                    borderRadius:`${index===1&&i===0?"150px":0}`,position:`${index===1&&i===0?"relative":"static"}`,top:-2,left:13,
+                    justifyContent:`${index>0&&i===0?"flex-end":"center"}`
+      
+                   }}
               >
               
               
@@ -111,6 +122,6 @@ const InlineCss = {
   Input: {
     height: "30px",
     textAlign: "center",
-    width: "50px",
+    width: "15px",
   },
 };

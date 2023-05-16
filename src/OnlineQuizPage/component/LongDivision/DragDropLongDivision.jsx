@@ -206,19 +206,22 @@ let maxWidth=Math.max(...divWidth)
 setCurrentWidth(maxWidth)
 setCurrentHeight(maxHeight)
 }  },[currentHeight])
-
+let defaultBorderRef=useRef(3)
   return (
     <>
-     <div style={{width:'fit-content',minWidth:98*dropState[0]?.length||1}}>
+     <div style={{width:'fit-content'}}>
        {dropState?.map((items, index) => (
-        <div key={index} className={styles.LongDivisonDragDropFlexBox}>
+        <div key={index} className={styles.LongDivisonDragDropFlexBox} style={{position:'relative'}}>
           
           {items?.map((item, i) =>
           
             item.isMissed !=="true" ? (
-             <div className={styles.LongDivisonDragDropFlexBox3} style={{
-              width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`,borderBottom:`${(index%2===0&&i>0)?1:0}px solid indigo`,
-              borderLeft:`${(index>0&&i===1)?1:0}px solid indigo`,padding:10
+             <div className={styles.LongDivisonDragDropFlexBox3} key={i} style={{
+            borderBottom:`${(index%2===0&&i>0)?defaultBorderRef.current:0}px solid indigo`,
+              borderRight:`${(index===1&&i===0)?defaultBorderRef.current+1:0}px solid indigo`,padding:10, paddingRight:5,
+              borderRadius:`${index===1&&i===0?"150px":0}`,position:`${index===1&&i===0?"relative":"static"}`,top:-2,left:18,
+              justifyContent:`${index>0&&i===0?"flex-end":"center"}`,
+              minWidth:30,minHeight:30
 
              }}>
              
@@ -227,19 +230,20 @@ setCurrentHeight(maxHeight)
              </div>
             ) : (
             
-              <div className={styles.LongDivisonDragDropFlexBox3}style={{
-                width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`,borderBottom:`${(index%2===0&&i>0)?1:0}px solid indigo`,
-                borderLeft:`${(index>0&&i===1)?1:0}px solid indigo`,padding:10
+              <div key={i} className={styles.LongDivisonDragDropFlexBox3}style={{
+            borderBottom:`${(index%2===0&&i>0)?defaultBorderRef.current:0}px solid indigo`,
+                borderRight:`${(index==1&&i===0)?defaultBorderRef.current+1:0}px solid indigo`,padding:10, paddingRight:5,
+                borderRadius:`${index===1&&i===0?"0 150px 150px 0":0}`,position:`${index===1&&i===0?"relative":"static"}`,left:18,top:-2,justifyContent:`${index>0&&i===0?"flex-end":"center"}`
               }}>
                
             
                <div
-                bgColor={item.show}
+             
                 className={`droppablehfu ${styles.LongDivisonDragDropBox}`}
-                style={{border:`${(item.show||isStudentAnswerResponse)?0:1}px dashed black`}}
+                style={{border:`${(item.show||isStudentAnswerResponse)?0:1}px dashed black`,   minWidth:40,minHeight:40}}
                 id={`${index} ${i}`}
                 value={item.value}
-                key={i}
+            
                 
               >
                 {(item.show||isStudentAnswerResponse) && (
@@ -262,15 +266,15 @@ setCurrentHeight(maxHeight)
      </div>
       <div className={styles.LongDivisonDragDropFlexBox2}>
         {dragState?.map((items, i) => (
-          <div id={`${i}`} className={`draggablehfu ${styles.LongDivisonDragDropBox}`} bgColor={items.show} ref={(el)=>heightRef.current[i]=el}
-          style={{border:`${items.show?0:1}px dashed black`}}
+          <div id={`${i}`} className={`draggablehfu ${styles.LongDivisonDragDropBox}`} ref={(el)=>heightRef.current[i]=el}
+          style={{border:`${items.show?0:1}px dashed black`,minWidth:40,minHeight:40}}
           key={i}
           >
             {items.show && (
               <Draggable onStop={(e) => handleStop1(e, i)} disabled={hasAnswerSubmitted||isStudentAnswerResponse} onDrag={handleDrag} onStart={handleDragStart}>
                 <div style={
                   {
-                    backgroundColor:`${items.show?'indigo':'initial'}`
+                    backgroundColor:`${items.show?'indigo':'initial'}`,minWidth:40,minHeight:40
                   }
                 }><HtmlParserComponent value={items?.val} /></div>
               </Draggable>
