@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import styled from "styled-components";
+
 import { useState } from "react";
 import styles from "../../../OnlineQuiz.module.css";
 import HtmlParser from "react-html-parser";
@@ -8,7 +8,6 @@ import HtmlParserComponent from "../../../../CommonJSFiles/HtmlParserComponent";
 export default function ContentPlaceValueTableSelect({
   content,
   inputRef,
-  totalEmptyBox,
   questionHead,
   totalCols,
   choices,
@@ -37,7 +36,6 @@ export default function ContentPlaceValueTableSelect({
     <div>
       <div style={GridPlaceValueTable}>
         <div
-          totalCols={totalCols}
           className={styles.PlaceValueTableSelectTypeSelectChoiceFlexBox}
           style={HeaderRowPlaceValueTable}
 
@@ -56,7 +54,6 @@ export default function ContentPlaceValueTableSelect({
         {content?.map((items, index) => (
           <div
             key={index}
-            totalCols={totalCols}
             className={styles.PlaceValueTableSelectTypeSelectChoiceFlexBox}
           >
             {items.map((item, i) =>

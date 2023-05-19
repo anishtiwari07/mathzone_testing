@@ -253,6 +253,7 @@ setCurrentHeight(maxHeight)
           )}
         </div>
       ))}
+      <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag and Drop the answers.</div>
       <div className={styles.MatchObjectHorizontalTypeDragDropFlexBox2}>
         {dragState?.map((items, i) => (
           <div id={`${i}`} className={`draggablehfu ${styles.MatchObjectHorizontalTypeDragDropBox}`} bgColor={items.show} ref={(el)=>heightRef.current[i]=el}

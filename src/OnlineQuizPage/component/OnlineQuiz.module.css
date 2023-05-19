@@ -2071,10 +2071,7 @@
     height: auto;
   }
 
-  .PlaceValueTableSelectTypeSelectChoiceFlexBox2 > div > div {
-    min-width: auto;
-    min-height: auto;
-  }
+ 
 
   .PlaceValueTableSelectTypeSelectChoiceFlexBox2 > div > div:nth-child(2) {
     flex: 1;
