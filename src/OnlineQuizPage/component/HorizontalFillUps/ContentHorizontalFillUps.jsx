@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components"
-import {useState} from "react"
 import DragAndDropType from "../ChoicesType/DragAndDropType/DragAndDropType";
 import KeyingChoiceType from "../ChoicesType/ChoiceTypeKeying/KeyingChoiceType";
 import SelectChoice from "../ChoicesType/SelectChoice/SelectChoice";
@@ -11,7 +10,7 @@ export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,tot
    
     return <div>
         {
-      choiceType=='dragdrop' &&<DragAndDropType content={content} choices={choices} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows}/>
+      choiceType=='dragdrop' &&<DragAndDropType content={content} choices={choices} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} choiceType={choiceType}/>
       
         }
         {
@@ -19,7 +18,7 @@ export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,tot
         
         }
         {
-            choiceType=='selectchoice'&&<SelectChoice content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices} studentAnswer={studentAnswer}/>
+            choiceType=='selectchoice'&&<SelectChoice content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices} studentAnswer={studentAnswer} choiceType={choiceType}/>
         }
           {
             choiceType=='multi select'&&<MultiSelect content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} hasAnswerSubmitted={hasAnswerSubmitted} choices={choices}/>
@@ -44,12 +43,7 @@ gap:10px;
 }
 
 `
-const Input=styled.input`
-height:50px;
-text-align:center;  
-width:80px;
 
-`
 {/* <DragAndDropType content={content} choices={choices}/> */}
 
 //keying

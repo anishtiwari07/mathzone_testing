@@ -1,19 +1,18 @@
 import React, { useContext, useEffect } from "react";
 import { useState, useRef } from "react";
-import HtmlParser from "react-html-parser/lib/HtmlParser";
 import parse from "html-react-parser";
 import styled from "styled-components";
 import styles from "../../../OnlineQuiz.module.css";
 import { optionSelectStaticMathField } from "../../replaceDomeNode/ReplaceDomNode";
 import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
-import { student_answer } from "../../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
 export default function SelectChoiceHorizontalFillUpsEquationType({
   choices,
   inputRef,
   answerHasSelected,
   content,
   totalRows,
-  studentAnswer
+  studentAnswer,
+  choiceType
 }) {
   const [row, setRow] = useState([]);
   let [choicesState, setChoicesState] = useState([]);
@@ -56,6 +55,7 @@ export default function SelectChoiceHorizontalFillUpsEquationType({
         <div
           className={`${styles.HorizontalPictureSelectChoiceFlexBox} mathzone-color-indigo`}
           key={index}
+          style={{gap:choiceType="horizontal_fill_ups"?5:18}}
         >
           {items?.map((item, i) =>
             item.isMissed === "false" ? (

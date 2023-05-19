@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
+import parse from "html-react-parser"
 import styled from "styled-components";
-import styles from "../../HorizontalFillUpsEquationType.module.css";
-import parse from "html-react-parser";
-import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
-import { optionSelectStaticMathField } from "../../replaceDomeNode/ReplaceDomNode";
-import { student_answer } from "../../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
-import { useScrollBar } from "../../../../../CommonFunction/useScrollBar";
 import { dragdropPointCordinate } from "../../../../../CommonFunction/dragdropPointCordinate";
+import { useScrollBar } from "../../../../../CommonFunction/useScrollBar";
+import { student_answer } from "../../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
+import ParserComponent from "../../../../CommonJSFiles/ParserComponent";
+import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
+import styles from "../../../OnlineQuiz.module.css"
+import { optionSelectStaticMathField } from "../../../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
 const elementFinds = (target, xyAxis, dropState) => {
   if (xyAxis[0] == undefined) return false;
   let elem = document.elementFromPoint(xyAxis[0], xyAxis[1]);
@@ -49,7 +50,7 @@ const updateState = (
 ) => {
   targetState[row][col].dropVal = sourceState[index].val;
   targetState[row][col].show = true;
-
+  // console.log(targetState[row][col])
 
   updateTargetState([...targetState]);
   sourceState[index] = { ...sourceState[index], show: false };
@@ -73,7 +74,7 @@ const updateState2 = (
    updateSourceState([ ...sourceState ]);
 
 };
-export default function ContentHorizontalFillUpsEquationType({
+export default function HorizontalDragAndDropType({
   content,
   choices,
   inputRef,
@@ -85,10 +86,10 @@ export default function ContentHorizontalFillUpsEquationType({
   const [dragState, setDragState] = useState([]);
   const [isDragActive, setIsDragActive] = useState(false);
   const currentDrag = useRef(-1);
-  const [handleDrag,handleDragStart]=useScrollBar()
   const [xyPosition, setXyPosition] = useState([]);
   const currentDrop = useRef([-1, -1]);
   const [isDropActive, setIsDropActive] = useState(false);
+  const [handleDrag,handleDragStart]=useScrollBar()
   useEffect(() => {
     let arr = [];
 
@@ -113,7 +114,6 @@ export default function ContentHorizontalFillUpsEquationType({
   },[] );
   
   const handleStop1 = (e, i) => {
-
     setIsDragActive(true);
     let [x,y]=dragdropPointCordinate(e)
     let temp = [...dragState];
@@ -155,7 +155,7 @@ useEffect(()=>{
     let id = setTimeout(() => {
       let val=elementFinds2("draggablehfu", xyPosition,dragState)
       if (val!==false) {
-       
+        console.log(val,'vlaue')
         updateState2(
           dragState,
           dropState,
@@ -175,64 +175,98 @@ useEffect(()=>{
 
 
   const handleStop2 = (e, row, col) => {
-    dropState[row][col].show = false;
-    let value= dropState[row][col].dropVal
+    let value=dropState[row][col].dropVal
+    dropState[row][col].dropVal=""
     for(let item of dragState){
-      if(!item.show){
+      if(!item?.show){
         item.show=true
         item.val=value
-        break;
+        break
       }
     }
- 
-    dropState[row][col].dropVal = "";
+    dropState[row][col].show = false;
     setDropState([ ...dropState] );
     setDragState([...dragState])
+    
   };
-  inputRef.current=[...dropState]
+  inputRef.current=dropState
+  const heightRef=useRef([])
+  const [currentHeight,setCurrentHeight]=useState(0)
+  const [currentWidth,setCurrentWidth]=useState(0)
+  useEffect(()=>{
+if(currentHeight==0){
+  
+      let divHeight=[]
+      let divWidth=[]
+let n=heightRef?.current?.length||0
+for(let i=0;i<n;i++)
+{
+divHeight.push(heightRef?.current[i]?.offsetHeight)
+divWidth.push(heightRef?.current[i]?.offsetWidth)
+}
+let maxHeight=Math.max(...divHeight)
+let maxWidth=Math.max(...divWidth)
+setCurrentWidth(maxWidth)
+setCurrentHeight(maxHeight)
+}  },[currentHeight])
   return (
     <>
       {dropState?.map((items, index) => (
-        <div className={`${styles.HorizontalPictureDragDropFlexBox} mathzone-color-indigo`} key={index} style={{marginBottom:'1rem'}}>
+        <div key={index} className={styles.MatchObjectHorizontalTypeDragDropFlexBox}>
           {items?.map((item, i) =>
-            item.isMissed !== "true" ? (
-              <div className="fontColor" style={{fontSize:16,fontWeight:"bold",gap:"1rem"}}>{parse(item.value,optionSelectStaticMathField)}</div>
+            item.isMissed === "false" ? (
+             <div className={styles.MatchObjectHorizontalTypeDragDropFlexBox3} style={{
+              width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`
+             }}>
+              <div>{parse(item?.imgvalue,optionSelectStaticMathField)}</div>
+              <div><b><ParserComponent value={item?.numvalue} /></b></div>
+             </div>
             ) : (
             
-              <div
-               
-                className={`droppablehfu ${styles.HorizontalPictureDragDropBox}`}
+              <div className={styles.MatchObjectHorizontalTypeDragDropFlexBox3}style={{
+                width:`calc((100% - ${(items.length-1)*2}rem) / ${items.length})`
+              }}>
+                <div>{parse(item.imgvalue,optionSelectStaticMathField)}</div>
+               <div>
+               <div
+                bgColor={item.show}
+                className={`droppablehfu ${styles.MatchObjectHorizontalTypeDragDropBox}`}
+                style={{border:`${(item.show||isStudentAnswerResponse)?0:1}px dashed black`}}
                 id={`${index} ${i}`}
                 value={item.value}
                 key={i}
-                style={
-                  {
-                    border:`${(item.show||isStudentAnswerResponse)?0:1}px dashed black`,minHeight:'60px'
-                  }
-                }
+                
               >
-                {(item?.show||isStudentAnswerResponse) && (
+                {(item.show||isStudentAnswerResponse) && (
                   <Draggable onStop={(e) => handleStop2(e, index, i)} disabled={hasAnswerSubmitted||isStudentAnswerResponse} onDrag={handleDrag} onStart={handleDragStart}>
-                    <div style={{
-                      backgroundColor:`${(item?.show||isStudentAnswerResponse)?'indigo':'initial'}`
-
-                    }}>{parse(isStudentAnswerResponse?item[student_answer]:item?.dropVal,optionSelectStaticMathField)}</div>
+                    <div style={
+                  {
+                    backgroundColor:`${(item.show||isStudentAnswerResponse)?'indigo':'initial'}`
+                  }
+                }>{<ParserComponent value={isStudentAnswerResponse?item[student_answer]:item?.dropVal} />}</div>
                   </Draggable>
                 )}
+              </div>
+               </div>
+              
               </div>
             )
           )}
         </div>
       ))}
-      <div className={styles.questionName} style={{marginTop:"1rem"}}>Drag And Drop</div>
-      <div className={styles.HorizontalPictureDragDropFlexBox2}>
+      <div className={styles.MatchObjectHorizontalTypeDragDropFlexBox2}>
         {dragState?.map((items, i) => (
-          <div id={`${i}`} className={`draggablehfu ${styles.HorizontalPictureDragDropBox}`} style={{border:`${items?.show?0:1}px solid black`,minHeight:'60px'}}>
+          <div id={`${i}`} className={`draggablehfu ${styles.MatchObjectHorizontalTypeDragDropBox}`} bgColor={items.show} ref={(el)=>heightRef.current[i]=el}
+          style={{border:`${items.show?0:1}px dashed black`}}
+          
+          >
             {items.show && (
               <Draggable onStop={(e) => handleStop1(e, i)} disabled={hasAnswerSubmitted||isStudentAnswerResponse} onDrag={handleDrag} onStart={handleDragStart}>
-                <div style={{
-                      backgroundColor:`${items?.show?'indigo':'initial'}`
-                    }}>{parse(items.val,optionSelectStaticMathField)}</div>
+                <div style={
+                  {
+                    backgroundColor:`${items.show?'indigo':'initial'}`
+                  }
+                }><ParserComponent value={items?.val} /></div>
               </Draggable>
             )}
           </div>
@@ -244,24 +278,8 @@ useEffect(()=>{
 
 export const FlexBox = styled.div`
   display: flex;
-
-  //justify-content:center;
-  align-items: center;
-  gap: 10px;
-  margin-top:2rem;
-  margin-bottom:2rem;
-  flex-wrap: wrap;
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  .fontColor{
-    color:indigo;
-    font-size:25px;
-    font-weight:600;
-    
-  }
+gap:2rem;
+flex-wrap:wrap;
+ 
 `;
 

@@ -46,18 +46,19 @@ function HundredChart({ data, meter }) {
     setPrevState(i);
   };
   let arr = [];
-  for (let i = 0; i < data.cols / 20; i++) {
-    let temp = Array(20)
+  
+  for (let i = 0; i < 10; i++) {
+    let temp = Array(10)
       .fill(0)
-      .map((e, j) => j + 1 + 20 * i);
+      .map((e, j) => j + 1 + 10 * i);
 
     arr.push(
-      <div className={styles.flex}>
+      <div className={styles.flex} key={i}>
         {temp.map((e, j) => {
           if (e === Number(data.answer)) {
-            return <div className={styles.brown1}>{"??"}</div>;
+            return <div key={j} className={styles.brown1}>{"??"}</div>;
           } else {
-            return <div className={styles.brown}>{e}</div>;
+            return <div key={j} className={styles.brown}>{e}</div>;
           }
         })}
       </div>
@@ -98,6 +99,7 @@ function HundredChart({ data, meter }) {
                 onClick={() => {
                   handleClick(k, i);
                 }}
+                key={i}
               >
                 <div className={`${styles.circle} mathzone-circle-selectbox`}>
                   {String.fromCharCode(65 + i)}
@@ -113,11 +115,3 @@ function HundredChart({ data, meter }) {
 }
 
 export default HundredChart;
-const FlexBox = styled.div`
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  > div {
-    width: calc(50% - 1rem);
-  }
-`;

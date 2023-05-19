@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-
 import { useEffect, useState, useRef } from "react";
 import styles from "../OnlineQuiz.module.css"
 import SolveButton from "../SolveButton";
 import parse from "html-react-parser";
 import { ValidationContext } from "../../MainOnlineQuiz/MainOnlineQuizPage";
-import ContMatchObjVerticalEqn from "./ContMatchObjVerticalEqn";
-import { optionSelectStaticMathField } from "../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
-import { collectDataAtCompileTimeMatchObjectVerticalEqn } from "./EqnMatchObjVertCollectData/EqnMatchObjVertCollectData";
-import { oldAndNewData } from "../HorizontalFillUpsEquationType/CollectAnswerDataHorizontalFillUpsEquation/CollectAnswerDataHorizontalFillUpsEquation";
+import ContentMatchObjectHorizontal from "./ContentMatchObjectHorizontal";
+import { serializeResponse } from "../../CommonJSFiles/gettingResponse";
 import CustomAlertBoxMathZone from "../../CommonJSFiles/CustomAlertBoxMathZone";
-import { deleteKeysFromArray, manupulateEquationTypeQuestion1D, manupulateQuestionContent1Darray, manupulateQuestionContentHorizontal } from "../../CommonJSFiles/ManupulateJsonData/commonManupulateJsonData";
 import ConditionOnProgressBar from "../../CommonJsxComponent/ConditionOnProgressBar";
 import oneDto2D from "../../CommonJSFiles/ManupulateJsonData/oneDto2D";
+import { deleteKeysFromArray, findSelectedValue, manupulateDataSelectChoice, manupulateEquationTypeQuestion1D, manupulateQuestionContent1Darray, manupulateQuestionContentHorizontal } from "../../CommonJSFiles/ManupulateJsonData/commonManupulateJsonData";
+import { optionSelectStaticMathField } from "../HorizontalFillUpsEquationType/replaceDomeNode/ReplaceDomNode";
+import { collectDataAtCompileTimeMatchObjectVerticalEqn } from "../EqnMatchObjVert/EqnMatchObjVertCollectData/EqnMatchObjVertCollectData";
 import compareLatexData from "../../CommonJSFiles/compareLatexData";
+
 const validationForSelectChoice=(inputRef,content)=>{
 let arr=inputRef?.current
 let n=arr?.length||0
@@ -23,23 +23,21 @@ for(let i=0;i<n;i++)
 {
   if(arr[i].show)
   {
-    
-    val=oldAndNewData(arr[i].value)
+    val=arr[i].value
     break;
   }
 }
-
 if(val===null)
 return 0
 n=content?.length||0
-for(let key in content)
+for(let i=0;i<n;i++)
 {
-  if(content[key]!==false)
+  if(content[i]?.isMissed=="true")
   {
-    if(String(content[key]).trim()!==String(val).trim())
-    return 1
-    else
-    return 2
+if(content[i]?.numvalue!=val)
+{
+return 1
+}
   }
 }
 return 2
@@ -48,37 +46,70 @@ const validationForDragAndDrop=(inputRef)=>
 {
   let n=inputRef?.current?.length||0
   let arr=inputRef.current
-
-for(let row of arr)
-{
-  for(let col of row)
+  for(let i=0;i<n;i++)
   {
-    if(col.isMissed==="true")
-    {
-      if(col.show===false)
-      return 0
-    }
+let m=arr[i]?.length||0
+for(let j=0;j<m;j++)
+{
+  if(arr[i][j].isMissed=="true")
+  {
+    if(!arr[i][j].show)
+    return 0//not selected
   }
 }
-for(let row of arr)
-{
-  for(let col of row)
-  {
-    if(col.isMissed==="true")
-    {
-      if(col.show===true)
-      {
-        let val=col.numvalue
-        let dropVal=col.dropVal
-        val=oldAndNewData(val)
-        dropVal=oldAndNewData(dropVal)
-        if(String(val).trim()!==String(dropVal).trim())
-        return 1
-      }
-    }
   }
+  for(let i=0;i<n;i++)
+  {
+let m=arr[i]?.length||0
+for(let j=0;j<m;j++)
+{
+  if(arr[i][j].isMissed=="true")
+    if(arr[i][j].numvalue!=arr[i][j].dropVal)
+    return 1//not selected}
+  
 }
+  }
  return 2
+}
+const validationForMultiSelect=(choices)=>{
+
+ 
+  let n=choices?.length||0
+  let flag=true
+  for(let i=0;i<n;i++)
+  {
+    if(choices[i].show){
+      flag=false
+      break
+    }
+  }
+  if(flag)
+  {
+    return 0
+  }
+  for(let i=0;i<n;i++)
+  {
+    if(choices[i].show!=choices[i].correct){
+    return 1}
+  }
+  return 2
+}
+const changeStateAfterValidation=(setHasAnswerSubmitted,setIsAnswerCorrect,val,setRedAlert)=>
+{
+  console.log(val)
+  if(val===0)
+  {
+    setRedAlert(true)
+    return
+  }
+  else if(val===1)
+  {
+    setIsAnswerCorrect(false)
+  }
+  else {
+    setIsAnswerCorrect(true)
+  }
+  setHasAnswerSubmitted(true)
 }
 const validationForKeying = (newData, choices,equationObj) => {
 
@@ -111,36 +142,16 @@ const validationForKeying = (newData, choices,equationObj) => {
   }
   return 2;
 };
-const changeStateAfterValidation=(setHasAnswerSubmitted,setIsAnswerCorrect,val,setRedAlert)=>
-{
-  console.log(val)
-  if(val===0)
-  {
-    setRedAlert(true)
-    return
-  }
-  else if(val===1)
-  {
-    setIsAnswerCorrect(false)
-  }
-  else {
-    setIsAnswerCorrect(true)
-  }
-  setHasAnswerSubmitted(true)
-}
-
-export default function MatchObjVertEqn({ state, totalRows, totalCols,meter }) {
+export default function MatchObjectHorizontal({ state, totalRows, totalCols,meter }) {
   meter=Number(meter)||0
   totalRows = Number(totalRows);
   totalCols = Number(totalCols);
   const [newData,setNewData]=useState({})
-  const equationKeyingRef=useRef()
-  //let [rows, setRows] = useState([]);
-  const {hasAnswerSubmitted,setHasAnswerSubmitted,setIsAnswerCorrect,setChoicesId,setStudentAnswerQuestion, setQuestionWithAnswer,
-    isStudentAnswerResponse}=useContext(ValidationContext)
+  const {hasAnswerSubmitted,setHasAnswerSubmitted,setIsAnswerCorrect,setChoicesId,setStudentAnswerQuestion,setQuestionWithAnswer,isStudentAnswerResponse}=useContext(ValidationContext)
   let [totalEmptyBox, setTotalEmptyBox] = useState(0);
 
   const inputRef = useRef(new Array(totalEmptyBox));
+  const equationKeyingRef=useRef()
   useEffect(()=>{
    
     let arr=collectDataAtCompileTimeMatchObjectVerticalEqn(state?.questionContent)
@@ -194,20 +205,19 @@ changeStateAfterValidation(setHasAnswerSubmitted,setIsAnswerCorrect,status,setRe
    
  
   };
-
   return (
     <div>
-      {!isStudentAnswerResponse&& <SolveButton onClick={handleSubmitAnswer} answerHasSelected={hasAnswerSubmitted}/>}
+       {!isStudentAnswerResponse&&<SolveButton onClick={handleSubmitAnswer} answerHasSelected={hasAnswerSubmitted}/>}
        {redAlert&&!hasAnswerSubmitted&& <CustomAlertBoxMathZone />}
       <div id="studentAnswerResponse">
         <div className={styles.questionName}>{parse(state?.questionName,optionSelectStaticMathField)}</div>
         {state?.upload_file_name&&<div><img src={state?.upload_file_name} alt="image not found"/></div>}
-        <div className={`${styles.borderTopBottomMargin}`}>
-         <ConditionOnProgressBar meter={meter} />
+        <div className={styles.borderTopBottomMargin}>
+          <ConditionOnProgressBar meter={meter} />
         </div>
         <div className={styles.contentParent} >
           
-          <ContMatchObjVerticalEqn
+          <ContentMatchObjectHorizontal
             content={state?.questionContent}
             totalEmptyBox={totalEmptyBox}
             inputRef={inputRef}

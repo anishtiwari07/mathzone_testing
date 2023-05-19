@@ -52,7 +52,11 @@ const updateState = (
   targetState[targetIndex[0]][targetIndex[1]].show = true;
   updateTargetState([...targetState]);
   sourceState[sourceIndex].show = false;
-  sourceState = sourceState?.filter((item, i) => i !== sourceIndex);
+  sourceState = sourceState?.map((item, i) => {
+    if(i === sourceIndex)
+    return {...item,show:false}
+    return {...item}
+  });
   updateSourceState([...sourceState]);
 };
 const updateState2 = (
@@ -62,11 +66,16 @@ const updateState2 = (
   updateSourceState,
   sourceIndex
 ) => {
-  let arr = {
-    show: true,
-    val: sourceState[sourceIndex[0]][sourceIndex[1]]?.dropVal,
-  };
-  targetState.push({ ...arr });
+
+for(let item of targetState){
+  if(!item.show&&item.val===sourceState[sourceIndex[0]][sourceIndex[1]]?.dropVal)
+  {
+    item.show=true
+    break
+  }
+}
+  
+
   updateTargetState([...targetState]);
   sourceState[sourceIndex[0]][[sourceIndex[1]]].show = false;
   sourceState[sourceIndex[0]][[sourceIndex[1]]].dropVal = "";
@@ -241,7 +250,7 @@ const {isStudentAnswerResponse}=useContext(ValidationContext)
               </div>
             </Draggable>
           ) : (
-            <div id={`${i}`}></div>
+            <div id={`${i}`} style={{ border:'1px solid indigo' }}>{1}</div>
           )
         )}
       </div>

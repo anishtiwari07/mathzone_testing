@@ -78,6 +78,7 @@ export default function DragAndDropType({
   inputRef,
   totalEmptyBox,
   totalRows,
+  choiceType
 }) {
   const {hasAnswerSubmitted}=useContext(ValidationContext)
   let currentIndex = 0;
@@ -198,10 +199,10 @@ useEffect(()=>{
         <tr className={styles.HorizontalPictureDragDropFlexBox} key={index}>
           {items?.map((item, i) =>
             item.isMissed === "false" ? (
-              <td><div className="fontColor"><HtmlParserComponent value={item?.value} /></div></td>
+              <td  style={{padding:choiceType?5:10}}><div className="fontColor"><HtmlParserComponent value={item?.value} /></div></td>
             ) : (
             
-             <td>
+             <td style={{padding:choiceType?5:10}}>
                <div
                
                className={`droppablehfu ${styles.HorizontalPictureDragDropBox}`}
@@ -268,37 +269,4 @@ export const FlexBox = styled.div`
     
   }
 `;
-const Box = styled.div`
-  min-height: 50px;
-  height: auto;
-  width: auto;
-  text-align: center;
-  min-width: ${props=>!props.bgColor?80:80}px;
- 
-  border: ${(props) => (props.bgColor ? "0" : "1")}px dashed black;
-  > div {
-    background-color: ${(props) => (props.bgColor ? "indigo" : "initial")};
-    min-width: inherit;
-    min-height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    padding:1rem;
-  }
-`;
 
-const FlexBox2 = styled.div`
-  display: flex;
-  margin-top: 1rem;
-  //justify-content:center;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: wrap;
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components"
-import {useState} from "react"
 import DragDropHorizontalFillUpsEquationType from "./ChoiceTypeHorizontalFillUpsEquationType/DragDropHorizontalFillUpsEquationType/DragDropHorizontalFillUpsEquationType";
 import KeyingHorizontalFillUpsEquationType from "./ChoiceTypeHorizontalFillUpsEquationType/KeyingHorizontalFillUpsEquationType/KeyingHorizontalFillUpsEquationType";
 import SelectChoiceHorizontalFillUpsEquationType from "./ChoiceTypeHorizontalFillUpsEquationType/SelectChoiceHorizontalFillUpsEquationType/SelectChoiceHorizontalFillUpsEquationType";
@@ -19,7 +18,7 @@ export default function ContentHorizontalFillUpsEquationType({content,hasAnswerS
         
         }
         {
-            choiceType=='selectchoice'&&<SelectChoiceHorizontalFillUpsEquationType content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices}  totalCols={totalCols} studentAnswer={studentAnswer}/>
+            choiceType=='selectchoice'&&<SelectChoiceHorizontalFillUpsEquationType content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices}  totalCols={totalCols} studentAnswer={studentAnswer} choiceType={choiceType}/>
            
         }
         

@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
-import styled from "styled-components";
 import { useState } from "react";
 import styles from "../../../OnlineQuiz.module.css";
 import HtmlParser from "react-html-parser/lib/HtmlParser";
 import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
-import { student_answer } from "../../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
 export default function CompareOfImageSelectChoice({
   content,
   totalRows,
@@ -57,7 +55,7 @@ export default function CompareOfImageSelectChoice({
       fontSize:18,
     },
     InsideDiv: {
-      width: `Calc((100% - ${totalCols}*2rem) / ${totalCols})`,
+      maxWidth: `Calc((100% - ${totalCols}*2rem) / ${totalCols})`,
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",

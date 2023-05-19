@@ -1,4 +1,5 @@
 import React from "react";
+import MainMatchObjectHorizontalEqn from "../MatchObjectHorizontalEquation/MainMatchObjectHorizontalEqn";
 import MatchObjectHorizontal from "./MatchObjectHorizontal";
 // let obj = {
 //   "operation":"addition",
@@ -55,8 +56,10 @@ export default function MainMatchObjectHorizontal({obj,meter}) {
    
   }
   let temp = { ...obj, questionContent: [...arr] };
+  let str=JSON.stringify(obj)
   return (
-    <MatchObjectHorizontal
+    str.includes("mq-selectable")?<MainMatchObjectHorizontalEqn  obj={obj} meter={meter}
+    />:<MatchObjectHorizontal
       state={temp}
       totalRows={temp?.rows}
       totalCols={temp?.cols}

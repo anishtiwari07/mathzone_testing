@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
-import HtmlParser from "react-html-parser/lib/HtmlParser";
 import styled from "styled-components";
 import { ValidationContext } from "../../../../MainOnlineQuiz/MainOnlineQuizPage";
 import styles from "../../../OnlineQuiz.module.css"

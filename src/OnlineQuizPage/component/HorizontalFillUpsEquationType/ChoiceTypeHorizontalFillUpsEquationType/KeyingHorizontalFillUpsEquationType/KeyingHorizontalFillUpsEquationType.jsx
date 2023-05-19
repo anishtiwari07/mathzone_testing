@@ -85,12 +85,12 @@ export default function KeyingHorizontalFillUpsEquationType({
   return (
     <div>
       {row?.map((items, index) => (
-        <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index}>
+        <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index} style={{gap:2}}>
           {items?.map((item, i) =>
             item.isMissed !== "true" ? (
               <div
                 key={i}
-                style={{ fontSize: 16, fontWeight: "bold", gap: "1rem" }}
+                style={{ fontSize: 16, fontWeight: "bold" }}
               >
                 {parse(item.value, optionSelectStaticMathField)}
               </div>
