@@ -12,6 +12,7 @@
     "material-ui": "0.20.2",
     "npm": "^7.13.0",
     "react": "^16.8.0",
+    "react-app-rewired": "^2.2.1",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^16.8.0",
     "react-draggable": "^4.4.3",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -r Mathzone-build/build && mv build Mathzone-build/build && cd Mathzone-build && git add . && git commit -m 'build-commit' && git push && cd ..",
+    "build": "react-app-rewired build && rm -r Mathzone-build/build && mv build Mathzone-build/build && cd Mathzone-build && git add . && git commit -m 'build-commit' && git push && cd ..",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
