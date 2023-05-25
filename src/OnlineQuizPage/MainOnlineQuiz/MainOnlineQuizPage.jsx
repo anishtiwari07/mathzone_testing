@@ -6,7 +6,7 @@ import React, {
 import replaceJsonData from "../CommonJSFiles/replacingJsonData";
 import AllFile from "../../components/AllFile";
 import { serializeResponse } from "../CommonJSFiles/gettingResponse";
-import "../react-mathquill-extension.css"
+import {addStyles} from "../ExternalPackages"
 export const ValidationContext = React.createContext("Auth Context");
 export function ValidationContextProvider({ children }) {
   const [hasAnswerSubmitted, setHasAnswerSubmitted] = useState(false);
@@ -54,6 +54,7 @@ export function ValidationContextProvider({ children }) {
     </ValidationContext.Provider>
   );
 }
+addStyles()
 const StudentQuizDisplay = ({obj}) => {
   const {studentAnswerQuestion,setStudentAnswerQuestion,questionWithAnswer,setQuestionWithAnswer,handleUpdateStudentAnswerResponse,isStudentAnswerResponse,choices,choicesId}=useContext(ValidationContext)
   const checkData=(data)=>{

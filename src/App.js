@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import MainOnlineQuizPage from "./OnlineQuizPage/MainOnlineQuiz/MainOnlineQuizPage";
-
 function App() {
   const [state, setState] = useState({});
 
