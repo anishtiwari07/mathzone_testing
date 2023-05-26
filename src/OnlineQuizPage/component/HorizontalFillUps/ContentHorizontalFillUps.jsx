@@ -4,8 +4,9 @@ import DragAndDropType from "../ChoicesType/DragAndDropType/DragAndDropType";
 import KeyingChoiceType from "../ChoicesType/ChoiceTypeKeying/KeyingChoiceType";
 import SelectChoice from "../ChoicesType/SelectChoice/SelectChoice";
 import MultiSelect from "../ChoicesType/MultiSelect/MultiSelect";
+import HorizontalKeyingChoiceType from "../ChoicesType/ChoiceTypeKeying/HorizontalKeyingChoiceType";
 
-export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,totalEmptyBox,inputRef,choices,totalRows,choiceType,studentAnswer})
+export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,totalEmptyBox,inputRef,choices,totalRows,choiceType,studentAnswer,questionType,totalCols})
 {
    
     return <div>
@@ -14,11 +15,11 @@ export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,tot
       
         }
         {
-            choiceType=='keying' &&<KeyingChoiceType content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} hasAnswerSubmitted={hasAnswerSubmitted}/>
+            choiceType=='keying' &&(questionType=="horizontal"?<HorizontalKeyingChoiceType content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalCols={totalCols} totalRows={totalRows} hasAnswerSubmitted={hasAnswerSubmitted}/>:<KeyingChoiceType content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} hasAnswerSubmitted={hasAnswerSubmitted} />)
         
         }
         {
-            choiceType=='selectchoice'&&<SelectChoice content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices} studentAnswer={studentAnswer} choiceType={choiceType}/>
+            choiceType=='selectchoice'&&<SelectChoice content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} answerHasSelected={hasAnswerSubmitted} choices={choices} studentAnswer={studentAnswer} choiceType={choiceType} questionType={questionType}/>
         }
           {
             choiceType=='multi select'&&<MultiSelect content={content} inputRef={inputRef} totalEmptyBox={totalEmptyBox} totalRows={totalRows} hasAnswerSubmitted={hasAnswerSubmitted} choices={choices}/>
@@ -27,8 +28,6 @@ export default function ContentHorizontalFillUps({content,hasAnswerSubmitted,tot
 }
 export const FlexBox=styled.div`
 display:flex;
-
-//justify-content:center;
 align-items:center;
 gap:10px;
 

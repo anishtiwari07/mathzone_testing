@@ -8,11 +8,9 @@ export default function VerticalKeyingChoiceType({
   inputRef,
   content,
   totalRows,
-  totalEmptyBox,
   hasAnswerSubmitted,
 }) {
   const [row, setRow] = useState([]);
-  const [state, setState] = useState([]);
   const { isStudentAnswerResponse } = useContext(ValidationContext);
   const handleChange = (e, rows, cols) => {
     row[rows][cols].dropVal = e.target.value;
@@ -73,11 +71,6 @@ export const FlexBox = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
-const Input = styled.input`
-  height: 50px;
-  text-align: center;
-  width: 80px;
 `;
 const InlineCss = {
   Input: {

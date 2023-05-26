@@ -6,6 +6,7 @@ import HtmlParserComponent from "../../../CommonJSFiles/HtmlParserComponent";
 import { student_answer } from "../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
 import { ValidationContext } from "../../../MainOnlineQuiz/MainOnlineQuizPage";
 import styles from "../../OnlineQuiz.module.css";
+import HorizontalSelectChoice from "./HorizontalSelectChoice";
 export default function SelectChoice({
   choices,
   inputRef,
@@ -51,7 +52,7 @@ export default function SelectChoice({
   
   return (
     <>
-      {row?.map((items, index) => (
+      {true?<HorizontalSelectChoice row={row}/>:row?.map((items, index) => (
         <div
           className={`${styles.HorizontalPictureSelectChoiceFlexBox} mathzone-color-indigo`}
           key={index}

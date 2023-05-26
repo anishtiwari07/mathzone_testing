@@ -226,6 +226,7 @@ export default function HorizontalFillUps({ state, totalRows, totalCols,meter,qu
             choices={state?.choices}
             choiceType={state?.choiceType}
             studentAnswer={state[student_answer]}
+            questionType={state?.type}
           />
 
         </div>
