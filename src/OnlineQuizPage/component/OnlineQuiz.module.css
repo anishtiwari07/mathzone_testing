@@ -2864,7 +2864,7 @@
   .whitePage u,
   .whitePage p,
   .whitePage h1 {
-  overflow-wrap: anywhere !important;
+  overflow-wrap: normal !important;
   }
 
   .nextBtnContainer {
