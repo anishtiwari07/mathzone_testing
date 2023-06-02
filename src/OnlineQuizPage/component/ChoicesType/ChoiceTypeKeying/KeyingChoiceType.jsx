@@ -14,12 +14,12 @@ export default function VerticalKeyingChoiceType({
   const { isStudentAnswerResponse } = useContext(ValidationContext);
   const handleChange = (e, rows, cols) => {
     row[rows][cols].dropVal = e.target.value;
+    row[rows][cols].stringLength=e.target.value.length>5?e.target.value.length:5
     if (e.target.value === "" && e.target.value === undefined)
       row[rows][cols].show = false;
     else row[rows][cols].show = true;
     setRow([...row]);
   };
-  let currentIndex = 0;
   useEffect(() => {
     let arr = [];
     for (let i = 0; i < totalRows; i++) {
@@ -35,12 +35,12 @@ export default function VerticalKeyingChoiceType({
   }, []);
   inputRef.current = [...row];
   return row?.map((items, index) => (
-    <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index} >
+    <div className={`${styles.HorizontalPictureKeyingFlexBox} mathzone-color-indigo`} key={index} style={{gap:5}} >
       {items?.map((item, i) =>
         item.isMissed === "false" ? (
-          <div key={i}>
-            <HtmlParserComponent value={item?.value} />
-          </div>
+          <Box key={i}>
+            <HtmlParserComponent value={"ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddditem?.value"} />
+          </Box>
         ) : (
           <div value={item.value} key={i}>
             <input
@@ -51,6 +51,7 @@ export default function VerticalKeyingChoiceType({
                 handleChange(e, index, i);
               }}
               disabled={hasAnswerSubmitted}
+              size={item?.stringLength||5}
             />
           </div>
         )
@@ -61,21 +62,22 @@ export default function VerticalKeyingChoiceType({
 
 export const FlexBox = styled.div`
   display: flex;
-
-  //justify-content:center;
   align-items: center;
   gap: 10px;
-
   > div {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 `;
+export const Box=styled.div`
+overflow-wrap:anywhere;
+
+`
 const InlineCss = {
   Input: {
-    height: "50px",
+    height: "40px",
     textAlign: "center",
-    width: "80px",
+    minWidth: "50px",
   },
 };

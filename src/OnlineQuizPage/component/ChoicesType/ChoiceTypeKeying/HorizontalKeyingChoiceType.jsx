@@ -3,7 +3,6 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import React, { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
 import HtmlParserComponent from "../../../CommonJSFiles/HtmlParserComponent";
 import { student_answer } from "../../../CommonJSFiles/ManupulateJsonData/oneDto2D";
 import { ValidationContext } from "../../../MainOnlineQuiz/MainOnlineQuizPage";
@@ -71,18 +70,6 @@ export default function HorizontalKeyingChoiceType({
   </Table>
 }
 
-export const FlexBox = styled.div`
-  display: flex;
-
-  align-items: center;
-  gap: 10px;
-
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
 const InlineCss = {
   Input: {
     height: "40px",

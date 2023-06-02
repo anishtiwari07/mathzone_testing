@@ -60,7 +60,7 @@ function OptMultPicEqn({ state, totalRows,meter,response=false }) {
        {!isStudentAnswerResponse&&<SolveButton onClick={handleSubmitAnswer} answerHasSelected={showAnswer}/>}
        {redAlert&&!hasAnswerSubmitted&& <CustomAlertBoxMathZone />}
         <div id="studentAnswerResponse"> 
-        <div  className={styles.questionName}>{parse(state?.questionName,optionSelectStaticMathField)}</div>
+        <div  className={`${styles.questionName} ${styles.mathquill_mathzone_questionname}`}>{parse(state?.questionName,optionSelectStaticMathField)}</div>
         {state?.upload_file_name&&<div><img src={state?.upload_file_name} alt="image not found"/></div>}
          <div>
           <ConditionOnProgressBar meter={meter} />

@@ -51,7 +51,7 @@ return
 inputRef.current=rows
   return (
     <div className="mathzone-color-indigo">
-      <div totalRow={flag?1:2} style={{
+      <div  style={{
         display:"grid",
         width:"90%",
         marginTop: "1rem",
@@ -63,20 +63,16 @@ inputRef.current=rows
         {rows?.map((item, i) => (
           <div style={
 {
-  gap: "4px",
-
-
-    display: "flex",
+    gap: "4px",
     cursor: "pointer",
     flexWrap: "wrap",
     border:" 1px solid black",
     padding: "1rem",
-    alignItems: "center",
     borderRadius: "5px",
     fontWeight:"bold"
 }
 
-          }onClick={() => selectOptionHandler(i)} className={`${(isStudentAnswerResponse&&String(item?.value)?.trim()==String(studentAnswer)?.trim()) ?styles.selectedChoiceType:item.show
+          }onClick={() => selectOptionHandler(i)} className={`${styles.mathquill_mathzone_questionname} ${(isStudentAnswerResponse&&String(item?.value)?.trim()==String(studentAnswer)?.trim()) ?styles.selectedChoiceType:item.show
             ? styles.selectedChoiceType
             : styles.prevSelectionAnswerSelection}`}> 
             {parse(item.value,optionSelectStaticMathField)}
