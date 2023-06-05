@@ -3074,15 +3074,15 @@
 
   }
   .mathquill_mathzone_questionname{
-   display: flex;
-   
-   align-items: flex-end;
-   gap:4px;
    flex-wrap:wrap;
     
   }
   .mathquill_mathzone_questionname span:global(.mq-math-mode){
     font-size:inherit !important;
     
+  }
+ 
+  .mathquill_mathzone_questionname span:global(.mq-math-mode) span:global(.mq-root-block){
+    display: contents;    
   }
  
