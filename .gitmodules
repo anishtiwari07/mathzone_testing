@@ -1,3 +1,9 @@
 [submodule "Mathzone-build"]
 	path = Mathzone-build
 	url = git@github.com:carveniche/Mathzone-build.git
+[submodule "src/OnlineQuizPage/component"]
+	path = src/OnlineQuizPage/component
+	url = git@github.com:anishtiwari07/component.git
+[submodule "src/OnlineQuizPage/--force"]
+	path = src/OnlineQuizPage/--force
+	url = git@github.com:anishtiwari07/component.git
